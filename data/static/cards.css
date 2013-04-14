@@ -86,10 +86,13 @@ button {
   background-image: url("/static/nemesis.svg");
 }
 
-#achieved {
+#achievements {
  width: 280px;
  float: right;
  margin-right: 10px;
+}
+
+#achieved li {
 }
 
 #crafting {

@@ -1,6 +1,7 @@
 /*
  UI for Nemesis Card game
 */
+var gamestate = {"lost":false};
 
 function card_img(cardname) {
     return '<img src="/static/' + cardname + 
@@ -31,11 +32,37 @@ function get_score() {
     $.get("/score", show_score);
 }
 
+function get_achievements() {
+    function show_achieved(names) {
+	var achieved = $('#achieved');
+	achieved.empty();
+	for (var i = 0; i < names.length; ++i) {
+	    achieved.append('<li>' + names[i] + '</li>');
+	}
+    }
+    $.get("/achieved", null, show_achieved, "json");
+}
+
+function draw_card_from_deck(evt) {
+    if (gamestate.lost) return;
+    var id = evt.target.id;
+    function got_card(obj) {
+	if (obj.lost) {
+	    show_card(id, obj.card);
+	    gamestate.lost = true;
+	} else {
+	    deal_card(obj.card);
+	}
+    }
+    $.post("/draw/" + id, null, got_card, "json");
+}
+
 function setup() {
-    deal_card("flint");
-    deal_card("stick");
-    deal_card("flint");
     get_score();
+    get_achievements();
+    $('#animals').click(draw_card_from_deck);
+    $('#vegetables').click(draw_card_from_deck);
+    $('#minerals').click(draw_card_from_deck);
 }
 
 $(setup);

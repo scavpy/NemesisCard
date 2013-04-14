@@ -1,7 +1,6 @@
 TODO
 ====
 
-Click to draw a card.
 Click to use a card.
 Click to place a card for crafting.
 First crafting recipes.
@@ -22,4 +21,5 @@ CSS layout for card table.
 Load jQuery from static files.
 Session cookie when game starts.
 Persistent session data.
+Click to draw a card.
 

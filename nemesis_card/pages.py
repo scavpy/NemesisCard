@@ -1,11 +1,10 @@
-from __future__ import print_function
-
 import os
 import json
 
 from nemesis_card import bottle
-from nemesis_card.bottle import get, post, template, request, response
-import nemesis_card.session
+from nemesis_card.bottle import get, post, template, abort
+
+from nemesis_card import session
 
 @get("/")
 def home_page():
@@ -13,18 +12,28 @@ def home_page():
 
 @get("/play")
 def play_game():
-    sessionID = nemesis_card.session.start()
+    sessionID = session.start()
     return template("play", session=sessionID)
 
 @get("/achieved")
 def get_achieved():
-    achieved = nemesis_card.session.get().achieved
+    achieved = session.get().achieved
     return json.dumps(achieved)
 
 @get("/score")
 def get_score():
-    score = nemesis_card.session.get().score
+    score = session.get().score
     return json.dumps(score)
+
+@post("/draw/<deckname>")
+def draw_card(deckname=None):
+    game = session.get()
+    try:
+        deck = game.decks[deckname]
+    except KeyError:
+        abort(404, "no such deck")
+    nextcard = game.nextcard(deckname)
+    return json.dumps(nextcard)
 
 def setup():
     """ set up template and static file directories """

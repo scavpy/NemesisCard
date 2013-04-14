@@ -3,7 +3,10 @@
 """
 
 import random
+from collections import defaultdict, deque
 from nemesis_card.bottle import request, response
+
+from nemesis_card import recipes
 
 class CardGameSession:
     """ game session, consisting of:
@@ -12,16 +15,45 @@ class CardGameSession:
        player achievements
        player score
     """
+    MAX_HAND = 13
     def __init__(self):
-        self.decks = {
-            "animal":["plague"],
-            "vegetable":["stick","stick","famine"],
-            "mineral":["flint","flint","meteor"]
-        }
+        self.decks = defaultdict(deque)
         self.hand = []
         self.achieved = []
         self.score = 0
+        self.replenish("animals")
+        self.replenish("vegetables")
+        self.replenish("minerals")
 
+    def nextcard(self, deckname):
+        """ get a dictionary of info about next card """
+        if len(self.hand) >= self.MAX_HAND:
+            return None
+        deck = self.decks[deckname]
+        if not deck:
+            self.replenish(deckname)
+        card = deck.popleft()
+        response = dict(card=card.name, lost=False)
+        try:
+            defence = recipes.DEFENCES[card.name]
+            if defence not in self.achieved:
+                response["lost"] = True
+        except KeyError:
+            pass
+        if not response["lost"]:
+            self.hand.append(card)
+        return response
+
+    def replenish(self, deckname):
+        stock = recipes.STOCK[deckname]
+        #TODO care about rarity
+        deck = self.decks[deckname]
+        stuff = stock[:]
+        random.shuffle(stock)
+        for s in stuff:
+            deck.append(s)
+
+        
 SESSIONS = {}
 
 def start():
