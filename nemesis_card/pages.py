@@ -8,6 +8,9 @@ from nemesis_card.bottle import get, post, template
 def home_page():
     return template("home_page")
 
+@get("/play")
+def play_game():
+    return template("play")
 
 def setup():
     """ set up template and static file directories """

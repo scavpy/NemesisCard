@@ -1,1 +1,133 @@
-h1 { text-align: center; }
+@import url(http://fonts.googleapis.com/css?family=Fondamento:400italic,400);
+@import url(http://fonts.googleapis.com/css?family=Radley:400,400italic);
+
+h1 {
+  font-family: Fondamento;
+  font-size: 200%;
+  text-align: center;
+}
+
+h1 b {
+  background: #80C060;
+  padding: 0.3em 2em;
+  border-radius: 0.5em / 50%;
+}
+
+h2 {
+  font-family: Fondamento;
+  font-size: 150%;
+  text-align: center;
+  margin-top: 0.3em;
+  margin-bottom: 0;
+}
+
+body {
+  font-size: 110%;
+  font-family: Radley, serif;
+  background: #406030;
+}
+
+#cardtable {
+  margin-top: 1em;
+  margin-left: auto;
+  margin-right: auto;
+  width: 800px;
+  border: 5px solid #80C060;
+  -o-border-image: url("/static/table_border.png") 5 repeat;
+  border-image: url("/static/table_border.png") 5 repeat;
+  padding: 1em;
+  color: #ffd;
+}
+
+button {
+  font-size: 200%;
+  border-radius: 0.5em;
+  padding: 0.2em 0.5em;
+  box-shadow: 5px 5px 5px rgba(0,0,0,0.5);
+}
+
+.play {
+  background: #80C060;
+  border-color: #80C060;
+}
+
+div {
+ border: dotted black 1px; /* temporary */
+}
+
+#decks {
+ width: 500px;
+}
+
+.deck {
+  width: 120px;
+  height: 180px;
+  border-radius: 10px;
+  border: 2px solid #ffd;
+  display: inline-block;
+  margin-right: 10px;
+  background-size: 100% 100%;
+}
+
+.deck img {
+  width: 100%;
+  border-radius: 8px;
+}
+
+.animal {
+  background-image: url("/static/animal_back.svg");
+}
+
+.vegetable {
+  background-image: url("/static/vegetable_back.svg");
+}
+
+.mineral {
+  background-image: url("/static/mineral_back.svg");
+}
+
+.nemesis {
+  background-image: url("/static/nemesis.svg");
+}
+
+#achieved {
+ width: 200px;
+ float: right;
+ margin-right: 10px;
+}
+
+#crafting {
+ width: 500px;
+}
+
+.result {
+ opacity: 0.6;
+ border-color: brown;
+ border-width: 3px;
+}
+
+.result.ok {
+ border-color: #80C060;
+}
+
+#hand {
+ display:block;
+ height: 300px;
+ overflow: visible;
+ width: 100%;
+}
+
+.card {
+  width: 120px;
+  margin-left: -80px;
+  display: inline-block;
+}
+
+.card:first-of {
+  margin-left: 0;
+}
+
+.card:hover {
+  z-order: 3;
+  margin-top: -20px;
+}

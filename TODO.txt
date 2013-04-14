@@ -2,9 +2,7 @@ TODO
 ====
 
 CSS layout for card table.
-Choose a nice web font.
 Load jQuery from static files.
-Artwork for card backs.
 Session data in sqlite3 database.
 Session cookie when game starts.
 Click to draw a card.
@@ -22,5 +20,7 @@ DONE
 
 Start web browser on a blank page.
 Serve static files and HTML templates from data directory.
+Choose a nice web font.
+Artwork for card backs.
 
 
