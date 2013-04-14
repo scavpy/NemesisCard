@@ -1,11 +1,11 @@
-Your Game Title
+Nemesis Card
 ===============
 
-Entry in PyWeek #12  <http://www.pyweek.org/12/>
+Entry in PyWeek #16  <http://www.pyweek.org/16/>
 URL: http://pyweek.org/e/nemesis_card
-Team: YOUR TEAM NAME (leave the "Team: bit")
-Members: YOUR TEAM MEMBERS (leave the "Members: bit")
-License: see LICENSE.txt
+Team: SporkfulofPork
+Members: scav
+License: LGPL
 
 
 Running the Game
@@ -17,15 +17,27 @@ Othewise open a terminal / console and "cd" to the game directory and run:
 
   python run_game.py
 
+It will try to open a browser tab on localhost:8123.  If it succeeds and your
+default browser is adequate, you can then play the game.
+
 
 How to Play the Game
 --------------------
 
 Can you prepare against pitiless fate?
 
-Move the cursor around the screen with the mouse.
+This is a resource and crafting card game. Each turn you can
+draw a resource card (animal, vegetable or mineral) or craft
+resources to make tools. Crafting new things gives you civilisation
+points, and some things you can craft are important achievements.
 
-Press the left mouse button to fire the ducks.
+Hidden among the resource decks are deadly Nemesis cards. If you draw
+one and do not yet have the achievement to counter it, the game is over
+and your civilisation is destroyed.
+
+If you attain all the planet-saving achievements before being destroyed,
+you win.  This is not guaranteed to be possible every time; life's not
+fair.
 
 
 Development notes 
