@@ -51,12 +51,8 @@ button {
   border-color: #80C060;
 }
 
-div {
- border: dotted black 1px; /* temporary */
-}
-
 #decks {
- width: 500px;
+  width: 500px;
 }
 
 .deck {
@@ -91,7 +87,7 @@ div {
 }
 
 #achieved {
- width: 200px;
+ width: 280px;
  float: right;
  margin-right: 10px;
 }
@@ -115,19 +111,39 @@ div {
  height: 300px;
  overflow: visible;
  width: 100%;
+ position: relative;
 }
 
 .card {
+  position:relative;
   width: 120px;
+  height: 180px;
+  border-radius: 10px;
   margin-left: -80px;
   display: inline-block;
+  box-shadow: -2px 2px 5px rgba(0,0,0,0.3);
+  z-index: 1;
 }
 
-.card:first-of {
+.card img {
+  width: 100%;
+  border-radius: 8px;
+}
+
+.card:first-of-type {
   margin-left: 0;
 }
 
 .card:hover {
-  z-order: 3;
-  margin-top: -20px;
+  z-index: 3;
+  top: -20px;
+  border: 1px solid #80C060;
+}
+
+.hidden {
+  opacity: 0.1;
+}
+
+.hidden:hover {
+  opacity: 1.0;
 }

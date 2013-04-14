@@ -1,10 +1,6 @@
 TODO
 ====
 
-CSS layout for card table.
-Load jQuery from static files.
-Session data in sqlite3 database.
-Session cookie when game starts.
 Click to draw a card.
 Click to use a card.
 Click to place a card for crafting.
@@ -22,5 +18,8 @@ Start web browser on a blank page.
 Serve static files and HTML templates from data directory.
 Choose a nice web font.
 Artwork for card backs.
-
+CSS layout for card table.
+Load jQuery from static files.
+Session cookie when game starts.
+Persistent session data.
 

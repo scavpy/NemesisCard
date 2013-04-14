@@ -2,6 +2,8 @@
 <head>
  <title>Nemesis Card</title>
  <link rel="stylesheet" href="/static/cards.css"/>
+ <script src="/static/jquery-1.9.1.min.js"></script>
+ <script src="/static/play_ui.js"></script>
 </head>
 <body>
  <div id="cardtable">
@@ -20,7 +22,9 @@
    <div id="craft2" class="crafting deck"></div>
    <div id="result" class="result deck"></div>
   </div>
+  <h2>Score <span id="score"></span></h2>
   <ul id="hand">
   </ul>
  </div>
+ <span class="hidden">{{session}}</span>
 </body>
