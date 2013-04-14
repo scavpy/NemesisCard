@@ -1,5 +1,26 @@
-
-
 TODO
 ====
+
+CSS layout for card table.
+Choose a nice web font.
+Load jQuery from static files.
+Artwork for card backs.
+Session data in sqlite3 database.
+Session cookie when game starts.
+Click to draw a card.
+Click to use a card.
+Click to place a card for crafting.
+First crafting recipes.
+Achievement list and first achievements.
+Scores and hiscore table.
+First 3 Nemesis Cards.
+Artwork for cards made so far.
+More cards, recipes and achievements.
+
+DONE
+====
+
+Start web browser on a blank page.
+Serve static files and HTML templates from data directory.
+
 
