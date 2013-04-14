@@ -1,1 +1,4 @@
-Licence: short_licence
+Licence:
+  GNU LGPL for the code of nemesis_card (http://www.gnu.org/copyleft/lesser.html)
+  MIT license for bottle.py (http://www.opensource.org/licenses/MIT)
+  Creative Commons share-alike with attribution for all artwork (http://creativecommons.org/licenses/by-sa/3.0/)
