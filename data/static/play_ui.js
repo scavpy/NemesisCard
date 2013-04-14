@@ -57,9 +57,22 @@ function draw_card_from_deck(evt) {
     $.post("/draw/" + id, null, got_card, "json");
 }
 
+function get_hand() {
+    function got_hand(cardnames) {
+	var hand = $('#hand');
+	hand.empty()
+	for (var i = 0; i < cardnames.length; ++i) {
+	    deal_card(cardnames[i]);
+	}
+    }
+    $.get("/hand", null, got_hand, "json");
+}
+
+
 function setup() {
     get_score();
     get_achievements();
+    get_hand();
     $('#animals').click(draw_card_from_deck);
     $('#vegetables').click(draw_card_from_deck);
     $('#minerals').click(draw_card_from_deck);

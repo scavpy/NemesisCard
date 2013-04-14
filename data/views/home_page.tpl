@@ -6,6 +6,9 @@
 <body>
  <h1><b>Nemesis Card</b></h1>
  <div id="cardtable">
+  <button id="play_btn" class="play" onClick="location.href='/play'">
+   Play
+  </button>
   <h2>How To Play</h2>
   <p>Play consists of drawing resource cards and crafting them into
   new cards, which may be used for further crafting or as tools with

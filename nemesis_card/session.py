@@ -84,3 +84,12 @@ def start():
 def get():
     sessionID = request.cookies.get("NemesisCardSession","")
     return SESSIONS[sessionID]
+
+def delete():
+    sessionID = request.cookies.get("NemesisCardSession","")
+    if sessionID:
+        try:
+            del SESSIONS[sessionID]
+        except KeyError:
+            pass
+        response.set_cookie("NemesisCardSession","")

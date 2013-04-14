@@ -2,7 +2,7 @@ import os
 import json
 
 from nemesis_card import bottle
-from nemesis_card.bottle import get, post, template, abort
+from nemesis_card.bottle import get, post, template, abort,redirect
 
 from nemesis_card import session
 
@@ -15,6 +15,11 @@ def play_game():
     sessionID = session.start()
     return template("play", session=sessionID)
 
+@get("/quit")
+def quit_game():
+    session.delete()
+    redirect("/")
+    
 @get("/achieved")
 def get_achieved():
     achieved = session.get().achieved
@@ -24,6 +29,12 @@ def get_achieved():
 def get_score():
     score = session.get().score
     return json.dumps(score)
+
+@get("/hand")
+def get_hand():
+    hand = session.get().hand
+    cardnames = [c.name for c in hand]
+    return json.dumps(cardnames)
 
 @post("/draw/<deckname>")
 def draw_card(deckname=None):
