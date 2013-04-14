@@ -22,6 +22,7 @@ def main():
     add = ap.add_argument
     add("--port", default=8123, type=int, help="Local port number")
     args = ap.parse_args()
+    nemesis_card.pages.setup()
     opener =  threading.Thread(target=partial(open_browser_later, args.port))
     opener.daemon = True
     opener.start()
