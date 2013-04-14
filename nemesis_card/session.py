@@ -3,10 +3,32 @@
 """
 
 import random
-from collections import defaultdict, deque
+from collections import defaultdict
 from nemesis_card.bottle import request, response
 
 from nemesis_card import recipes
+
+class CardStock:
+    """ A set of cards that can be selected from randomly """
+    def __init__(self, cards):
+        self.allcards = cards
+        self.allowed = set(c for c in cards if c.need is None)
+
+    def allow(self, criterion):
+        newcards = set(c for c in self.allcards if c.need == criterion)
+        self.allowed |= newcards
+
+    def pick(self):
+        totaldensity = sum((1.0 / c.rarity) for c in self.allowed)
+        picklist = [(1.0 / c.rarity, c) for c in self.allowed]
+        target = random.uniform(0, totaldensity)
+        tot = 0.0
+        for d, card in picklist:
+            tot += d
+            if tot >= target:
+                return card
+        return picklist[-1][1]
+
 
 class CardGameSession:
     """ game session, consisting of:
@@ -16,23 +38,27 @@ class CardGameSession:
        player score
     """
     MAX_HAND = 13
+    SAFE_DRAWS = 50
     def __init__(self):
-        self.decks = defaultdict(deque)
+        self.decks = {
+            "animals":CardStock(recipes.ANIMALS),
+            "vegetables":CardStock(recipes.VEGETABLES),
+            "minerals":CardStock(recipes.MINERALS)
+            }
         self.hand = []
         self.achieved = []
         self.score = 0
-        self.replenish("animals")
-        self.replenish("vegetables")
-        self.replenish("minerals")
+        self.draws = 0
 
     def nextcard(self, deckname):
         """ get a dictionary of info about next card """
         if len(self.hand) >= self.MAX_HAND:
             return None
         deck = self.decks[deckname]
-        if not deck:
-            self.replenish(deckname)
-        card = deck.popleft()
+        card = deck.pick()
+        self.draws += 1
+        if self.draws >= self.SAFE_DRAWS:
+            deck.allow("Nemesis")
         response = dict(card=card.name, lost=False)
         try:
             defence = recipes.DEFENCES[card.name]
@@ -43,16 +69,6 @@ class CardGameSession:
         if not response["lost"]:
             self.hand.append(card)
         return response
-
-    def replenish(self, deckname):
-        stock = recipes.STOCK[deckname]
-        #TODO care about rarity
-        deck = self.decks[deckname]
-        stuff = stock[:]
-        random.shuffle(stock)
-        for s in stuff:
-            deck.append(s)
-
         
 SESSIONS = {}
 

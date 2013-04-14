@@ -1,7 +1,6 @@
 TODO
 ====
 
-Click to use a card.
 Click to place a card for crafting.
 First crafting recipes.
 Achievement list and first achievements.
