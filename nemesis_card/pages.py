@@ -36,6 +36,13 @@ def get_hand():
     cardnames = [c.name for c in hand]
     return json.dumps(cardnames)
 
+@post("/discard/<cardname>")
+def discard_card(cardname=None):
+    hand = session.get().hand
+    matching = [c for c in hand if c.name == cardname]
+    if matching:
+        hand.remove(matching[-1])
+
 @post("/draw/<deckname>")
 def draw_card(deckname=None):
     game = session.get()
@@ -45,6 +52,12 @@ def draw_card(deckname=None):
         abort(404, "no such deck")
     nextcard = game.nextcard(deckname)
     return json.dumps(nextcard)
+
+@get("/craft/<items>")
+def check_recipe(items=""):
+    item_list = sorted(items.split("+"))
+    game = session.get()
+    return json.dumps(game.check_recipe(item_list))
 
 def setup():
     """ set up template and static file directories """

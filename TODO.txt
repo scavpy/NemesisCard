@@ -1,8 +1,7 @@
 TODO
 ====
 
-Click to place a card for crafting.
-First crafting recipes.
+Accept crafting by click on result.
 Achievement list and first achievements.
 Scores and hiscore table.
 First 3 Nemesis Cards.
@@ -21,4 +20,7 @@ Load jQuery from static files.
 Session cookie when game starts.
 Persistent session data.
 Click to draw a card.
+Drag to discard a card.
+Drag to place a card for crafting.
+Check crafting recipe.
 

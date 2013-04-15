@@ -86,6 +86,12 @@ button {
   background-image: url("/static/nemesis.svg");
 }
 
+.discard {
+  margin-left: 20px;
+  border-color: black;
+  background-image: url("/static/discard.svg");
+}
+
 #achievements {
  width: 280px;
  float: right;
@@ -96,17 +102,21 @@ button {
 }
 
 #crafting {
- width: 500px;
+ width: 600px;
+}
+
+.crafting {
+ opacity: 0.8;
 }
 
 .result {
  opacity: 0.6;
- border-color: brown;
+ border-color: #80C060;
  border-width: 3px;
 }
 
-.result.ok {
- border-color: #80C060;
+.result:empty {
+ border-color: brown;
 }
 
 #hand {

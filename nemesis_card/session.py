@@ -69,6 +69,19 @@ class CardGameSession:
         if not response["lost"]:
             self.hand.append(card)
         return response
+
+    def check_recipe(self, cardlist):
+        """ check if a recipe is possible """
+        key = tuple(cardlist)
+        recipe = recipes.RECIPES.get(key)
+        print(key, recipe)
+        result = None
+        if recipe:
+            cardname, need_tech, get_tech, points = recipe
+            if need_tech is None or need_tech in self.achieved:
+                result = cardname
+        return result
+
         
 SESSIONS = {}
 

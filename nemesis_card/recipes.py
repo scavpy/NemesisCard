@@ -9,24 +9,24 @@ VEGETABLES = [
     C("stick",1,None),
     C("twigs",1,None),
     C("grass",1,None),
-    C("deforestation",50,"Nemesis"),
+    C("deforestation",1,"Nemesis"),
     ]
 
 ANIMALS = [
-    C("skin",1,None),
-    C("ivory",10,"Hunting"),
-    C("plague",200,"Nemesis"),
+    C("skin",1,"Hunting"),
+    C("ivory",1,"Hunting"),
+    C("plague",1,"Nemesis"),
     ]
 
 MINERALS = [
     C("dirt",1,None),
     C("water",1,"Container"),
-    C("clay",2,None),
-    C("flint",5,None),
-    C("sand",2,None),
-    C("salt",5,None),
-    C("meteor",500,"Nemesis"),
-    C("balrog",400,"Nemesis"),
+    C("clay",1,None),
+    C("flint",1,None),
+    C("sand",1,None),
+    C("salt",1,None),
+    C("meteor",1,"Nemesis"),
+    C("balrog",1,"Nemesis"),
     ]
 
 STOCK = {"animals":ANIMALS,
@@ -37,6 +37,7 @@ RECIPES = {
     # ingedients : (get card, need achievement, get achievement, score)
     ("flint","stick"):("spear",None,"Hunting",5),
     ("flint","twigs"):("ash",None,"Fire",10),
+    ("flint","grass"):("ash",None,"Fire",10),
     ("salt","sand"):("glass","Fire","Glassware",20),
 }
 

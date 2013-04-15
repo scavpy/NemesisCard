@@ -23,6 +23,7 @@
    <div id="craft1" class="crafting deck"></div>
    <div id="craft2" class="crafting deck"></div>
    <div id="result" class="result deck"></div>
+   <div id="discard" class="discard deck"></div>
   </div>
   <h2>Score <span id="score"></span></h2>
   <ul id="hand">
