@@ -41,11 +41,12 @@ RECIPES = {
     ("salt","sand"):("glass","Fire","Glassware",20),
 }
 
-DEFENCES = {
-    # nemesis card : need achievement
-    "meteor":"Meteor Defense System",
-    "plague":"Antibiotics",
-    "deforestation":"Land Conservation",
+NEMESES = {
+    # nemesis card : (defence, description)
+    "meteor":("Meteor Defense System", "a huge meteor."),
+    "balrog":("Fire Engines", "a terrible Balrog. You dug too deep and awoke shadow and flame."),
+    "plague":("Antibiotics", "a horrific plague."),
+    "deforestation":("reckless deforestation.", "Land Conservation"),
 }
 
 

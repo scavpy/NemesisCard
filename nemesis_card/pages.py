@@ -1,3 +1,26 @@
+"""
+  WEB PAGES
+  ==========
+  / - home page and tutorial
+  /play - start or continue a game
+  /quit - abandon a game
+  
+  WEB SERVICES
+  ============
+  All return a JSON representation of the game state unless otherwise specified
+  
+  GET
+    /state      - current game state
+    /craft      - if the cards in the crafting slots make a valid recipe, return card name
+
+  POST
+    /draw/D     - Draw from deck D (animals|vegetables|minerals)
+    /discard/A  - Discard card at A from the hand, A in {"craft1","craft2", 0..12}
+    /move/A/B   - Move a card from A to B. B in {"craft1","craft2","hand"}
+    /craft      - craft a new card if the crafting slots hold a valid recipe
+
+"""
+
 import os
 import json
 
@@ -19,45 +42,42 @@ def play_game():
 def quit_game():
     session.delete()
     redirect("/")
-    
-@get("/achieved")
-def get_achieved():
-    achieved = session.get().achieved
-    return json.dumps(achieved)
 
-@get("/score")
-def get_score():
-    score = session.get().score
-    return json.dumps(score)
+@get("/state")
+def get_state():
+    state = session.get()
+    return json.dumps(state.as_dict())
 
-@get("/hand")
-def get_hand():
-    hand = session.get().hand
-    cardnames = [c.name for c in hand]
-    return json.dumps(cardnames)
-
-@post("/discard/<cardname>")
-def discard_card(cardname=None):
-    hand = session.get().hand
-    matching = [c for c in hand if c.name == cardname]
-    if matching:
-        hand.remove(matching[-1])
+@post("/discard/<cardpos>")
+def discard_card(cardpos=None):
+    state = session.get()
+    state.discard(cardpos)
+    return json.dumps(state.as_dict())
 
 @post("/draw/<deckname>")
 def draw_card(deckname=None):
-    game = session.get()
-    try:
-        deck = game.decks[deckname]
-    except KeyError:
-        abort(404, "no such deck")
-    nextcard = game.nextcard(deckname)
-    return json.dumps(nextcard)
+    state = session.get()
+    state.draw_card(deckname)
+    return json.dumps(state.as_dict())
 
-@get("/craft/<items>")
-def check_recipe(items=""):
-    item_list = sorted(items.split("+"))
+@post("/move/<frompos>/<topos>")
+def move_card(frompos=None,topos=None):
+    state = session.get()
+    state.move_card(frompos, topos)
+    return json.dumps(state.as_dict())
+
+@get("/craft")
+def check_recipe():
     game = session.get()
-    return json.dumps(game.check_recipe(item_list))
+    recipe = game.check_recipe()
+    result = recipe[0] if recipe else None
+    return json.dumps(result)
+
+@post("/craft")
+def craft_recipe():
+    game = session.get()
+    game.craft_recipe()
+    return json.dumps(game.as_dict())
 
 def setup():
     """ set up template and static file directories """
