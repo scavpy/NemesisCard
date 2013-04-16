@@ -160,3 +160,30 @@ button {
 .hidden:hover {
   opacity: 1.0;
 }
+
+#message {
+  position: absolute;
+  top: 280px;
+  width: 360px;
+  padding: 1em;
+  border: 5px solid #80C060;
+  -o-border-image: url("/static/table_border.png") 5 repeat;
+  border-image: url("/static/table_border.png") 5 repeat;
+  background: #304824;
+  z-index: 5;
+  visibility: hidden;
+}
+
+#message_text {
+  width: 200px;
+  clear: left;
+}
+
+#message_card {
+  float: right;
+  border-color: black;
+}
+
+.dismiss {
+  font-size: 80%;
+}

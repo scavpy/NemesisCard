@@ -42,7 +42,7 @@ class CardGameSession:
        player score
     """
     MAX_HAND = 13
-    SAFE_DRAWS = 50
+    SAFE_DRAWS = 40
     def __init__(self):
         self.decks = {
             "animals":CardStock(recipes.ANIMALS),
@@ -80,7 +80,7 @@ class CardGameSession:
             return
         self.draws += 1
         if self.draws == self.SAFE_DRAWS:
-            for deck in self.decks:
+            for deck in self.decks.values():
                 deck.allow("Nemesis")
             self.message = "Your Nemesis approaches. Beware."
             self.message_card = "nemesis"
@@ -129,7 +129,7 @@ class CardGameSession:
             self.craft2 = None
         else:
             try:
-                n = int(cardpos)
+                n = int(frompos)
                 if n >=0 and n < len(self.hand):
                     card = self.hand[n]
                     self.hand[n:n+1] = []
