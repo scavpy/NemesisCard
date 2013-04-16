@@ -1,4 +1,0 @@
-title=nemesis_card
-author=yourgameauthor
-api=1
-orientation=landscape
