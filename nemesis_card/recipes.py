@@ -38,6 +38,8 @@ RECIPES = {
     ("flint","stick"):("spear",None,"Hunting",5),
     ("flint","twigs"):("ash",None,"Fire",10),
     ("flint","grass"):("ash",None,"Fire",10),
+    ("grass","grass"):("string",None,None,0),
+    ("skin","salt"):("leather",None,None,0),
     ("salt","sand"):("glass","Fire","Glassware",20),
 }
 

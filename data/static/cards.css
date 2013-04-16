@@ -121,7 +121,6 @@ button {
 
 #hand {
  display:block;
- height: 300px;
  overflow: visible;
  width: 100%;
  position: relative;
@@ -161,6 +160,16 @@ button {
   opacity: 1.0;
 }
 
+.leftcol {
+    float:left;
+    width: 60%;
+}
+
+.rightcol {
+    float: right;
+    width: 40%;
+}
+
 #message {
   position: absolute;
   top: 280px;
@@ -174,16 +183,13 @@ button {
   visibility: hidden;
 }
 
-#message_text {
-  width: 200px;
-  clear: left;
-}
-
 #message_card {
-  float: right;
   border-color: black;
 }
 
 .dismiss {
   font-size: 80%;
+  margin: auto;
+  margin-top: 1em;
+  display: block;
 }

@@ -29,9 +29,13 @@
   <ul id="hand">
   </ul>
  <div id="message">
-   <div id="message_text"></div>
-   <button class="dismiss" type="button">Ok</button>
-   <div id="message_card" class="deck"></div>
+   <div class="leftcol">
+     <div id="message_text"></div>
+     <button class="dismiss" type="button">Ok</button>
+   </div>
+   <div class="rightcol">
+     <div id="message_card" class="deck"></div>
+   </div>
  </div>
  <span class="hidden">{{session}}</span>
 </body>
