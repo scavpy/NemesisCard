@@ -20,7 +20,7 @@ ANIMALS = [
 
 MINERALS = [
     C("dirt",1,None),
-    C("water",1,"Container"),
+    C("water",1,"Containers"),
     C("clay",1,None),
     C("flint",1,None),
     C("sand",1,None),
@@ -40,6 +40,7 @@ RECIPES = {
     ("flint","grass"):("ash",None,"Fire",10),
     ("grass","grass"):("string",None,None,0),
     ("skin","salt"):("leather",None,None,0),
+    ("leather","string"):("bag",None,"Containers",10),
     ("salt","sand"):("glass","Fire","Glassware",20),
 }
 
@@ -48,7 +49,7 @@ NEMESES = {
     "meteor":("Meteor Defense System", "a huge meteor."),
     "balrog":("Fire Engines", "a terrible Balrog. You dug too deep and awoke shadow and flame."),
     "plague":("Antibiotics", "a horrific plague."),
-    "deforestation":("reckless deforestation.", "Land Conservation"),
+    "deforestation":("Land Conservation", "reckless deforestation."),
 }
 
 

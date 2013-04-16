@@ -137,6 +137,7 @@ function show_message() {
 
 function dismiss_message() {
     $('#message').css('visibility','hidden');
+    if (gamestate.lost) location.href = "/quit";
 }
 
 function setup() {

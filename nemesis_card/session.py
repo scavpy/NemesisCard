@@ -4,6 +4,7 @@
 
 import random
 import copy
+import logging
 from nemesis_card.bottle import request, response
 
 from nemesis_card import recipes
@@ -84,6 +85,9 @@ class CardGameSession:
                 deck.allow("Nemesis")
             self.message = "Your Nemesis approaches. Beware."
             self.message_card = "nemesis"
+        else:
+            self.message = ""
+            self.message_card = None
         try:
             defence, description = recipes.NEMESES[card.name]
             self.message_card = card.name
@@ -96,8 +100,6 @@ class CardGameSession:
         except KeyError:
             # Not a Nemesis card, just add it to the hand
             self.hand.append(card.name)
-            self.message = ""
-            self.message_card = None
 
     def discard(self, cardpos):
         """ discard a card from the hand or crafting slots """
@@ -168,11 +170,13 @@ class CardGameSession:
             self.craft1 = None
             self.craft2 = None
             self.hand.append(cardname)
-            if get_tech not in self.achieved:
+            if get_tech is not None and get_tech not in self.achieved:
                 self.score += points
                 self.achieved.append(get_tech)
                 self.message = "You have discovered {0}! (+{1} points)".format(get_tech, points)
                 self.message_card = ""
+                for deck in self.decks.values():
+                    deck.allow(get_tech)
 
 SESSIONS = {}
 
