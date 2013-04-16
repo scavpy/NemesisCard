@@ -39,7 +39,7 @@ RECIPES = {
     ("flint","twigs"):("ash",None,"Fire",10),
     ("flint","grass"):("ash",None,"Fire",10),
     ("grass","grass"):("string",None,None,0),
-    ("skin","salt"):("leather",None,None,0),
+    ("salt","skin"):("leather",None,None,0),
     ("leather","string"):("bag",None,"Containers",10),
     ("salt","sand"):("glass","Fire","Glassware",20),
 }
