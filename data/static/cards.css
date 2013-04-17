@@ -193,3 +193,7 @@ button {
   margin-top: 1em;
   display: block;
 }
+
+.check { width: 100px; height: 150px; margin: 10px; }
+.check.unavailable { border-bottom: 2px solid red; }
+.check.nocounter { border-top: 2px solid red; }

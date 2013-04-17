@@ -3,6 +3,7 @@
   ==========
   / - home page and tutorial
   /play - start or continue a game
+  /check - list all card images and check they are craftable
   /quit - abandon a game
   
   WEB SERVICES
@@ -27,7 +28,7 @@ import json
 from nemesis_card import bottle
 from nemesis_card.bottle import get, post, template, abort,redirect
 
-from nemesis_card import session
+from nemesis_card import session, recipes
 
 @get("/")
 def home_page():
@@ -42,6 +43,11 @@ def play_game():
 def quit_game():
     session.delete()
     redirect("/")
+
+@get("/check")
+def check_cards():
+    cardlist = recipes.check_cards()
+    return template("check", cards=cardlist)
 
 @get("/state")
 def get_state():

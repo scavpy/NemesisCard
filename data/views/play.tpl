@@ -37,5 +37,6 @@
      <div id="message_card" class="deck"></div>
    </div>
  </div>
+</div>
  <span class="hidden">{{session}}</span>
 </body>
