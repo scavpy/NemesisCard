@@ -14,8 +14,8 @@
    height="300"
    id="svg5382"
    version="1.1"
-   inkscape:version="0.48.2 r9819"
-   sodipodi:docname="m.svg">
+   inkscape:version="0.48.3.1 r9886"
+   sodipodi:docname="liquidh2.svg">
   <defs
      id="defs5384" />
   <sodipodi:namedview
@@ -25,9 +25,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0"
      inkscape:pageshadow="2"
-     inkscape:zoom="2.3555072"
-     inkscape:cx="101.35173"
-     inkscape:cy="142.29636"
+     inkscape:zoom="2.2173352"
+     inkscape:cx="101.14707"
+     inkscape:cy="150.71064"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -46,7 +46,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -65,15 +65,19 @@
     <text
        xml:space="preserve"
        style="font-size:33.21516418px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
-       x="92.07679"
-       y="1060.4701"
+       x="21.14295"
+       y="1024.5146"
        id="text5494"
        sodipodi:linespacing="125%"
        transform="scale(1.0637976,0.94002845)"><tspan
          sodipodi:role="line"
          id="tspan5496"
-         x="92.07679"
-         y="1060.4701">M</tspan></text>
+         x="21.14295"
+         y="1024.5146">Liquid</tspan><tspan
+         sodipodi:role="line"
+         x="21.14295"
+         y="1066.0336"
+         id="tspan13568">Hydrogen</tspan></text>
     <g
        id="g5280"
        transform="matrix(0.3658131,0,0,0.36284405,-18.689034,452.89915)"
@@ -114,5 +118,39 @@
        transform="matrix(-1,0,0,-1,198.25878,1803.0886)"
        width="200"
        height="300" />
+    <g
+       id="g13570"
+       transform="translate(12.176779,-37.883311)">
+      <path
+         sodipodi:nodetypes="ccccccccccc"
+         inkscape:connector-curvature="0"
+         id="path13560"
+         d="m 65.378701,837.54645 33.538418,-0.42454 1e-5,20.37778 c 16.186111,2.01757 30.930711,16.11055 38.632861,25.89676 8.07844,17.13356 5.71277,38.23447 0.84908,54.76528 -5.29733,10.69356 -13.21026,20.46967 -27.17037,25.89675 -18.843466,5.80957 -41.601089,4.69115 -55.189814,0 -14.709408,-4.53227 -24.656866,-11.7593 -29.717591,-27.17037 -8.173287,-15.38516 -7.606966,-45.17348 -0.849074,-56.88796 4.999022,-9.16208 23.027569,-20.63041 39.481943,-22.50046 z"
+         style="fill:#f9f9f9;stroke:none" />
+      <path
+         sodipodi:nodetypes="cccc"
+         transform="translate(0,752.36218)"
+         inkscape:connector-curvature="0"
+         id="path13562"
+         d="m 27.170369,157.35556 c -0.741669,13.5637 6.005827,25.62957 16.556944,36.93472 11.321185,14.71649 27.151213,11.39762 41.604627,13.58519 -24.927914,-9.28444 -45.6562,-24.29564 -58.161571,-50.51991 z"
+         style="fill:#ececec;stroke:none" />
+      <text
+         sodipodi:linespacing="125%"
+         id="text13564"
+         y="908.01959"
+         x="74.293976"
+         style="font-size:20px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans;-inkscape-font-specification:Sans"
+         xml:space="preserve"><tspan
+           y="908.01959"
+           x="74.293976"
+           id="tspan13566"
+           sodipodi:role="line">H</tspan></text>
+    </g>
+    <path
+       style="fill:#e6e6e6;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 81.178525,50.601533 -0.450992,16.235705 4.96091,-3.156943 0,-12.176779 z"
+       id="path13576"
+       inkscape:connector-curvature="0"
+       transform="translate(0,752.36218)" />
   </g>
 </svg>

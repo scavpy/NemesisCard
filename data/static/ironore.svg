@@ -14,8 +14,8 @@
    height="300"
    id="svg5382"
    version="1.1"
-   inkscape:version="0.48.2 r9819"
-   sodipodi:docname="m.svg">
+   inkscape:version="0.48.3.1 r9886"
+   sodipodi:docname="ironore.svg">
   <defs
      id="defs5384" />
   <sodipodi:namedview
@@ -46,7 +46,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -65,15 +65,15 @@
     <text
        xml:space="preserve"
        style="font-size:33.21516418px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
-       x="92.07679"
+       x="35.675041"
        y="1060.4701"
        id="text5494"
        sodipodi:linespacing="125%"
        transform="scale(1.0637976,0.94002845)"><tspan
          sodipodi:role="line"
          id="tspan5496"
-         x="92.07679"
-         y="1060.4701">M</tspan></text>
+         x="35.675041"
+         y="1060.4701">Iron ore</tspan></text>
     <g
        id="g5280"
        transform="matrix(0.3658131,0,0,0.36284405,-18.689034,452.89915)"
@@ -114,5 +114,19 @@
        transform="matrix(-1,0,0,-1,198.25878,1803.0886)"
        width="200"
        height="300" />
+    <path
+       style="fill:#800000;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 51.368979,172.21436 c -2.890769,-14.98581 7.792674,-33.61522 20.377777,-46.69907 l 34.387494,-5.09445 c 12.0848,3.39655 25.24815,6.02271 29.7176,14.8588 l -4.66991,36.51018 -32.689352,13.58519 c -20.48432,2.43662 -43.398556,-4.39157 -47.123609,-13.16065 z"
+       id="path13131"
+       inkscape:connector-curvature="0"
+       transform="translate(0,752.36218)"
+       sodipodi:nodetypes="ccccccc" />
+    <path
+       style="fill:#a02c2c;stroke:none"
+       d="m 75.992126,127.21343 29.293054,-3.82083 22.925,9.76435 c 3.68581,8.60006 1.35569,20.80967 -0.42454,32.68935 l -16.55694,0.84908 C 86.692681,161.61219 105.04716,141.1473 75.992126,127.21343 z"
+       id="path13133"
+       inkscape:connector-curvature="0"
+       transform="translate(0,752.36218)"
+       sodipodi:nodetypes="cccccc" />
   </g>
 </svg>
