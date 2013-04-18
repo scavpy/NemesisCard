@@ -12,17 +12,17 @@ VEGETABLES = [
     C("grass",1,None),
     C("log",1,None),
     C("wheat",1,None),
-    C("latex",2,None),
+#    C("latex",2,None),
     C("deforestation",1,"Nemesis"),
     ]
 
 ANIMALS = [
     C("skin",1,"Hunting"),
-    C("ivory",1,"Hunting"),
+#    C("ivory",1,"Hunting"),
     C("bone",1,None),
     C("chicken",1,None),
     C("plague",1,"Nemesis"),
-    C("snake",1,None),
+ #   C("snake",1,None),
     C("meat",1,"Hunting"),
     C("blood",1,"Containers"),
     C("DNA",10,"Microbiology"),
@@ -37,7 +37,7 @@ MINERALS = [
     C("salt",1,None),
     C("copper",5,None),
     C("ironore",3,None),
-    C("coal",2,None),
+    C("coal",2,"Bronze Tools"),
     C("stone",1,None),
     C("tin",5,None),
     C("zinc",2,"Electricity"),
@@ -67,9 +67,8 @@ RECIPES = {
     ("brass","wheel"):("gear",None,"Clockwork",50),
     ("bone","string"):("needle",None,"Sewing",10),
     ("grass","water"):("paper",None,"Paper",15),
-    ("needle","paper"):("punchcard",None,"Data",50),
-    ("gear","punchcard"):("analyticalengine","Steam","Computing",100),
-    ("punchcard","steamengine"):("analyticalengine","Alloys","Computing",100),
+    ("gear","paper"):("cardmill",None,"Data",50),
+    ("cardmill","steamengine"):("analyticalengine",None,"Computing",100),
     ("coal","ironore"):("iron","Fire","Iron",20),
     ("coal","sulphur"):("gunpowder","Fire","Explosives I",30),
     ("gunpowder","iron"):("cannon",None,"Cannon",50),
@@ -85,7 +84,8 @@ RECIPES = {
     ("compost","bread"):("mould",None,None,0),
     ("microscope","mould"):("antibiotics",None,"Antibiotics",200),
     ("bronze","stick"):("bronzetools",None,"Bronze Tools",20),
-    ("iron","bronzetools"):("irontools",None,"Iron Tools",20),
+    ("bronzetools","iron"):("irontools",None,"Iron Tools",20),
+    ("iron","stick"):("irontools",None,"Iron Tools",20),
     ("bronzetools","dirt"):("farm",None,"Agriculture",20),
     ("dirt","irontools"):("farm",None,"Agriculture",20),
     ("farm","log"):("treefarm",None,"Land Conservation", 100),
@@ -93,18 +93,18 @@ RECIPES = {
     ("bread","water"):("beer","Glassware","Brewing",20),
     ("leather","needle"):("lederhosen",None,"Clothing",20),
     ("beer","lederhosen"):("oktoberfest",None,"Oktoberfest",500),
-    ("latex","sulphur"):("rubber","Chemistry","Polymers",50),
+  #  ("latex","sulphur"):("rubber","Chemistry","Polymers",50),
     ("ash","clay"):("aluminium","Electricity","Aluminium",50),
-    ("aluminium","rubber"):("airtightsuit","Clothing",None,0),
-    ("airtightsuit","glass"):("spacesuit",None,"Spacesuit",100),
+  #  ("aluminium","rubber"):("airtightsuit","Clothing",None,0),
+  #  ("airtightsuit","glass"):("spacesuit",None,"Spacesuit",100),
     ("water","water"):("hydrogen+oxygen","Electricity","Electrolysis",30),
     ("hydrogen","water"):("liquidh2","Electricity","Cryogenics",30),
     ("oxygen","water"):("liquido2","Electricity","Cryogenics",30),
     ("liquidh2","liquido2"):("rocketfuel",None,"Rocket Fuel",20),
-    ("aluminium","rocketfuel"):("rocketengine",None,"Rocket Engine", 50),
-    ("rocketengine","spacesuit"):("spaceship",None,"Spaceship",50),
+    ("aluminium","rocketfuel"):("rocketstage",None,"Rocket Engines", 50),
+    ("rocketstage","rocketstage"):("rocket",None,"Spaceships",50),
     ("computer","telescope"):("meteorwarning",None,"Meteor Warning System",100),
-    ("meteorwarning","spaceship"):("meteordefence",None,"Meteor Defence System",200),
+    ("meteorwarning","rocket"):("meteordefence",None,"Meteor Defence System",200),
     ("glass","sand"):("silicon","Electricity","Electronics",100),
     ("analyticalengine","silicon"):("computer",None,"Electronic Computer",100),
     ("sulphur","water"):("sulphuricacid","Glassware","Chemistry",20),
@@ -181,13 +181,6 @@ def check_cards():
             logging.warning("loop at {0}".format(cname))
             return False
         visited.add(cname)
-        for c in resource_cards:
-            if cname != c.name:
-                continue
-            logging.debug("I can get {0} if I can get {1}".format(cname,c.need))
-            if can_gain_tech(c.need, visited):
-                reachable_cards.add(cname)
-                return True
         for (c1, c2), (c3, need, gain, pts) in RECIPES.items():
             results = c3.split("+")
             if not cname in results:
@@ -197,6 +190,13 @@ def check_cards():
                 possible_tech.add(gain)
                 reachable_cards.update(results)
                 known_cards.update([c1,c2])
+                return True
+        for c in resource_cards:
+            if cname != c.name:
+                continue
+            logging.debug("I can get {0} if I can get {1}".format(cname,c.need))
+            if can_gain_tech(c.need, visited):
+                reachable_cards.add(cname)
                 return True
         return False
         logging.warning("cannot gain {0}".format(cname))

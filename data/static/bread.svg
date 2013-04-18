@@ -7,16 +7,39 @@
    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
    xmlns:svg="http://www.w3.org/2000/svg"
    xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    width="200"
    height="300"
    id="svg5382"
    version="1.1"
-   inkscape:version="0.48.2 r9819"
-   sodipodi:docname="v.svg">
+   inkscape:version="0.48.3.1 r9886"
+   sodipodi:docname="bread.svg">
   <defs
-     id="defs5384" />
+     id="defs5384">
+    <linearGradient
+       inkscape:collect="always"
+       id="linearGradient5220">
+      <stop
+         style="stop-color:#c87137;stop-opacity:1;"
+         offset="0"
+         id="stop5222" />
+      <stop
+         style="stop-color:#c87137;stop-opacity:0;"
+         offset="1"
+         id="stop5224" />
+    </linearGradient>
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient5220"
+       id="linearGradient5226"
+       x1="121.33623"
+       y1="115.19997"
+       x2="122.37704"
+       y2="163.27118"
+       gradientUnits="userSpaceOnUse" />
+  </defs>
   <sodipodi:namedview
      id="base"
      pagecolor="#ffffff"
@@ -25,13 +48,13 @@
      inkscape:pageopacity="0"
      inkscape:pageshadow="2"
      inkscape:zoom="2.2466667"
-     inkscape:cx="100"
+     inkscape:cx="120.3585"
      inkscape:cy="132.42757"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
      inkscape:showpageshadow="false"
-     inkscape:window-width="674"
+     inkscape:window-width="727"
      inkscape:window-height="885"
      inkscape:window-x="310"
      inkscape:window-y="29"
@@ -45,7 +68,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -96,14 +119,31 @@
     <text
        xml:space="preserve"
        style="font-size:33.21516418px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
-       x="68.272995"
-       y="1045.2322"
+       x="62.83366"
+       y="1052.3347"
        id="text5494"
        sodipodi:linespacing="125%"
        transform="scale(1.0637976,0.94002845)"><tspan
          sodipodi:role="line"
          id="tspan5496"
-         x="68.272995"
-         y="1045.2322">V</tspan></text>
+         x="62.83366"
+         y="1052.3347">Bread</tspan></text>
+    <g
+       id="g5228">
+      <path
+         sodipodi:nodetypes="cccccccc"
+         transform="translate(0,752.36218)"
+         inkscape:connector-curvature="0"
+         id="path4708"
+         d="m 32.937685,154.45104 c 2.885167,12.97993 13.435896,22.03439 25.816023,26.70623 41.781882,8.98582 71.396302,4.44928 101.038572,-0.89021 7.01018,-5.89864 22.0472,-11.72246 26.70623,-29.37685 6.96799,-4.50291 5.48199,-33.51313 -10.23739,-39.16914 -17.42799,-11.728394 -59.73515,-8.25284 -97.477738,-7.56676 -15.949772,1.92748 -43.722488,9.34492 -46.735904,22.25519 -6.357883,11.35754 -3.164234,18.65639 0.890207,28.04154 z"
+         style="fill:#decd87;stroke:none" />
+      <path
+         sodipodi:nodetypes="ccccccc"
+         transform="translate(0,752.36218)"
+         inkscape:connector-curvature="0"
+         id="path4710"
+         d="m 52.077151,106.82493 c -10.316614,-1.14013 -16.084995,12.68954 -21.81009,19.58457 -4.609729,12.76554 -1.785098,21.28288 1.780416,29.37685 9.278335,2.91356 140.208343,8.30166 156.231453,-4.45104 3.44228,-13.40164 8.52208,-26.50556 -13.35312,-44.51038 -28.34287,-3.11343 -51.27089,-8.934287 -97.47774,-3.11573 -8.15458,0.58499 -13.006781,-3.783597 -25.370919,3.11573 z"
+         style="fill:url(#linearGradient5226);stroke:none;fill-opacity:1" />
+    </g>
   </g>
 </svg>

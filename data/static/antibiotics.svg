@@ -14,8 +14,8 @@
    height="300"
    id="svg5382"
    version="1.1"
-   inkscape:version="0.48.2 r9819"
-   sodipodi:docname="i.svg">
+   inkscape:version="0.48.3.1 r9886"
+   sodipodi:docname="antibiotics.svg">
   <defs
      id="defs5384" />
   <sodipodi:namedview
@@ -46,7 +46,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -65,15 +65,15 @@
     <text
        xml:space="preserve"
        style="font-size:33.21516418px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
-       x="72.4571"
-       y="1036.2356"
+       x="6.8688507"
+       y="1047.2317"
        id="text5494"
        sodipodi:linespacing="125%"
        transform="scale(1.0637976,0.94002845)"><tspan
          sodipodi:role="line"
          id="tspan5496"
-         x="72.4571"
-         y="1036.2356">I</tspan></text>
+         x="6.8688507"
+         y="1047.2317">Antibiotics</tspan></text>
     <path
        sodipodi:type="star"
        style="fill:#afdde9;stroke:#afdde9"
@@ -102,5 +102,54 @@
        transform="matrix(0.88745042,0.46090319,-0.46090319,0.88745042,516.04566,334.56013)"
        width="200"
        height="300" />
+    <g
+       id="g3050">
+      <path
+         sodipodi:nodetypes="ccccc"
+         inkscape:connector-curvature="0"
+         id="path3040"
+         d="m 69.772622,873.19298 0.86139,55.55968 c 19.45737,14.11245 37.087238,9.94991 54.267588,1.29209 l 0.8614,-56.85177 c 1.8353,-10.16207 -53.190808,-12.4907 -55.990378,0 z"
+         style="fill:#a05a2c;stroke:none" />
+      <path
+         sodipodi:nodetypes="ccccc"
+         inkscape:connector-curvature="0"
+         id="path3038"
+         d="m 72.787489,851.22752 0.08756,20.57869 c 19.503922,10.08053 42.882328,7.25882 51.595858,0.0947 l -0.43069,-19.81198 z"
+         style="fill:#ececec;stroke:none" />
+      <path
+         transform="matrix(1.0191304,0,0,1,-2.3582969,762.77931)"
+         d="m 124.01886,88.313309 a 25.174313,8.8292513 0 1 1 -50.348622,0 25.174313,8.8292513 0 1 1 50.348622,0 z"
+         sodipodi:ry="8.8292513"
+         sodipodi:rx="25.174313"
+         sodipodi:cy="88.313309"
+         sodipodi:cx="98.844551"
+         id="path3036"
+         style="fill:#f9f9f9;stroke:none"
+         sodipodi:type="arc" />
+      <path
+         sodipodi:nodetypes="ccccc"
+         transform="translate(0,752.36218)"
+         inkscape:connector-curvature="0"
+         id="path3046"
+         d="m 79.75336,131.71208 -0.505443,32.61894 c 15.192535,6.07285 38.183353,7.11044 45.913533,-3.16437 l 0.48765,-29.81052 c -5.87249,3.14406 -31.310984,8.34136 -45.89574,0.35595 z"
+         style="fill:#f2f2f2;stroke:none" />
+    </g>
+    <g
+       id="g3060">
+      <path
+         sodipodi:nodetypes="ccccc"
+         transform="translate(0,752.36218)"
+         inkscape:connector-curvature="0"
+         id="path3056"
+         d="m 149.20967,163.80077 7.56338,-3.34602 6.02974,12.05947 -7.96422,2.92527 c -8.69291,4.25221 -15.27216,-6.14607 -5.6289,-11.63872 z"
+         style="fill:#ff00ff;stroke:none" />
+      <path
+         sodipodi:nodetypes="cccc"
+         transform="translate(0,752.36218)"
+         inkscape:connector-curvature="0"
+         id="path3058"
+         d="m 156.66289,160.43484 c 4.67714,-1.83642 15.70991,-7.53154 17.86822,-0.67092 3.07772,7.77344 -7.99593,10.71676 -11.80862,12.76025 z"
+         style="fill:#ffeeaa;stroke:none" />
+    </g>
   </g>
 </svg>
