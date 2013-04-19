@@ -98,9 +98,11 @@ class CardGameSession:
             self.message_card = cardname
             if defence not in self.achieved:
                 self.lost = True
-                self.message = "Your civilization was destroyed by {0}".format(description)
+                self.message = ("Your civilization was destroyed by {0}.<br>"
+                                "If only you had discovered {1}!".format(description, defence))
             else:
-                self.message = "Your civilization was threatened by {0} Fortunately you were saved by {1}".format(description, defence)
+                self.message = ("Your civilization was threatened by {0}.<br>"
+                                "Fortunately you were saved by {1}".format(description, defence))
                 self.score += card.rarity
         except KeyError:
             # Not a Nemesis card, just add it to the hand
@@ -165,9 +167,13 @@ class CardGameSession:
             cardname, need_tech, get_tech, points = recipe
             if need_tech is None or need_tech in self.achieved:
                 result = recipe
+            else:
+                logging.debug("need {0} to make {1}".format(need_tech, cardname))
             if cardname == "abomination":
                 # you always think you are getting something awesome, then...
                 result = ("awesome",None,None,0)
+        else:
+            logging.debug("rejected recipe {0}+{1}".format(key[0],key[1]))
         return result
 
     def craft_recipe(self):
