@@ -8,12 +8,12 @@ C = namedtuple("C","name rarity need")
 
 VEGETABLES = [
     C("stick",1,None),
-    C("twigs",1,None),
+    C("twigs",2,None),
     C("grass",1,None),
     C("log",2,None),
-    C("wheat",5,None),
+    C("wheat",2,None),
 #    C("latex",2,None),
-    C("deforestation",500,"Nemesis"),
+    C("deforestation",80,"Nemesis"),
     ]
 
 ANIMALS = [
@@ -21,7 +21,7 @@ ANIMALS = [
 #    C("ivory",1,"Hunting"),
     C("bone",3,None),
     C("chicken",10,None),
-    C("plague",500,"Nemesis"),
+    C("plague",100,"Nemesis"),
  #   C("snake",1,None),
     C("meat",10,"Hunting"),
     C("blood",20,"Containers"),
@@ -30,22 +30,22 @@ ANIMALS = [
 
 MINERALS = [
     C("dirt",1,None),
-    C("water",1,"Containers"),
+    C("water",2,"Containers"),
     C("clay",5,None),
     C("flint",2,None),
-    C("sand",3,None),
-    C("salt",5,None),
-    C("copper",10,None),
-    C("ironore",10,None),
-    C("coal",5,"Bronze Tools"),
-    C("stone",1,None),
-    C("tin",5,None),
-    C("zinc",5,"Electricity"),
+    C("sand",2,None),
+    C("salt",2,None),
+    C("copper",3,None),
+    C("ironore",3,"Bronze Tools"),
+    C("coal",2,"Bronze Tools"),
+    C("stone",2,None),
+    C("tin",4,None),
+    C("zinc",3,"Electricity"),
     C("iron",3,"Iron Tools"),
     C("aluminium",5,"Aluminium"),
-    C("sulphur",10,None),
-    C("meteor",1000,"Nemesis"),
-    C("balrog",500,"Nemesis"),
+    C("sulphur",5,None),
+    C("meteor",200,"Nemesis"),
+    C("balrog",100,"Nemesis"),
     ]
 
 STOCK = {"animals":ANIMALS,

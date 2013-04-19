@@ -93,12 +93,12 @@ button {
 }
 
 #achievements {
- width: 280px;
+ width: 200px;
  float: right;
  margin-right: 10px;
 }
 
-#achieved li {
+#achievements li {
 }
 
 #crafting {
@@ -120,10 +120,16 @@ button {
 }
 
 #hand {
- display:block;
- overflow: visible;
- width: 100%;
- position: relative;
+  display:block;
+  overflow: visible;
+  width: 700px;
+  position: relative;
+  border-radius: 10px;
+  border: 2px solid #ffd;
+}
+
+#hand li {
+  list-style-type: none;
 }
 
 .card {
@@ -143,7 +149,7 @@ button {
 }
 
 .card:first-of-type {
-  margin-left: 0;
+  margin-left: 0px;
 }
 
 .card:hover {

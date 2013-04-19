@@ -49,6 +49,11 @@ def check_cards():
     cardlist = recipes.check_cards()
     return template("check", cards=cardlist)
 
+@get("/probs")
+def probabilities():
+    probs = session.probabilities()
+    return template("probs", probs=probs)
+
 @get("/state")
 def get_state():
     state = session.get()

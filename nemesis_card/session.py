@@ -34,6 +34,18 @@ class CardStock:
                 return card
         return picklist[-1][1]
 
+    def allow_all(self):
+        all_criteria = set(c.need for c in self.allcards)
+        for a in all_criteria:
+            self.allow(a)
+
+    def pnemesis(self):
+        allfreq = sum(p[0] for p in self.picklist)
+        nemeses = [p for p in self.picklist if p[1].name in recipes.NEMESES]
+        logging.debug(nemeses)
+        nemesisfreq = sum(n[0] for n in nemeses)
+        return nemesisfreq / allfreq
+
 
 class CardGameSession:
     """ game session, consisting of:
@@ -215,3 +227,22 @@ def delete():
         except KeyError:
             pass
         response.set_cookie("NemesisCardSession","")
+
+def probabilities():
+    """ probability of surviving 100 draws
+    from each deck, assuming you have all the
+    tech needed to get any card """
+    return {"Animals":psurvive(recipes.ANIMALS, 100),
+            "Vegetables":psurvive(recipes.VEGETABLES,100),
+            "Minerals":psurvive(recipes.MINERALS,100)}
+
+def psurvive(deck, turns):
+    """
+    probability of surviving a number of turns from a deck
+    """
+    stock = CardStock(deck)
+    stock.allow_all()
+    pnem = stock.pnemesis()
+    logging.debug("P(nemesis) = {0}".format(pnem))
+    pOK = 1 - pnem
+    return pOK ** turns
