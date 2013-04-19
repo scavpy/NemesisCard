@@ -88,9 +88,14 @@ class CardGameSession:
         else:
             self.message = ""
             self.message_card = None
+        self.check_nemesis(card.name)
+        
+    def check_nemesis(self, cardname):
+        """ see if a newly drawn or crafted card is a nemesis,
+        and if so, whether the player has any defence against it. """
         try:
-            defence, description = recipes.NEMESES[card.name]
-            self.message_card = card.name
+            defence, description = recipes.NEMESES[cardname]
+            self.message_card = cardname
             if defence not in self.achieved:
                 self.lost = True
                 self.message = "Your civilization was destroyed by {0}".format(description)
@@ -99,7 +104,7 @@ class CardGameSession:
                 self.score += card.rarity
         except KeyError:
             # Not a Nemesis card, just add it to the hand
-            self.hand.append(card.name)
+            self.hand.append(cardname)
 
     def discard(self, cardpos):
         """ discard a card from the hand or crafting slots """
@@ -160,6 +165,9 @@ class CardGameSession:
             cardname, need_tech, get_tech, points = recipe
             if need_tech is None or need_tech in self.achieved:
                 result = recipe
+            if cardname == "abomination":
+                # you always think you are getting something awesome, then...
+                result = ("awesome",None,None,0)
         return result
 
     def craft_recipe(self):
@@ -169,7 +177,6 @@ class CardGameSession:
             cardname, need_tech, get_tech, points = recipe
             self.craft1 = None
             self.craft2 = None
-            self.hand.append(cardname)
             if get_tech is not None and get_tech not in self.achieved:
                 self.score += points
                 self.achieved.append(get_tech)
@@ -177,6 +184,7 @@ class CardGameSession:
                 self.message_card = ""
                 for deck in self.decks.values():
                     deck.allow(get_tech)
+            self.check_nemesis(cardname)
 
 SESSIONS = {}
 
