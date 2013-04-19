@@ -81,7 +81,7 @@ RECIPES = {
     ("brass","glass"):("lens",None,"Optics",20),
     ("brass","lens"):("microscope",None,"Microbiology",50),
     ("lens","lens"):("telescope",None,"Astronomy",30),
-    ("compost","bread"):("mould",None,None,0),
+    ("bread","compost"):("mould",None,None,0),
     ("microscope","mould"):("antibiotics",None,"Antibiotics",200),
     ("bronze","stick"):("bronzetools",None,"Bronze Tools",20),
     ("bronzetools","iron"):("irontools",None,"Iron Tools",20),
@@ -110,7 +110,7 @@ RECIPES = {
     ("sulphur","water"):("sulphuricacid","Glassware","Chemistry",20),
     ("coal","hydrogen"):("chemicals","Chemistry","Advanced Chemistry",30),
     ("blood","chemicals"):("DNA","Microbiology","Biotechnology",50),
-    ("meat","chemicals"):("DNA","Microbiology","Biotechnology",50),
+    ("chemicals","meat"):("DNA","Microbiology","Biotechnology",50),
     ("DNA","chemicals"):("monstroserum","Brewing","Mad Science",100),
     ("chicken","monstroserum"):("hugecock",None,"Monster Creation",100),
     ("chemicals","sulphuricacid"):("explosives",None,"Explosives II",100),
@@ -165,11 +165,10 @@ def check_cards():
                 continue
             logging.debug("I can get {0} if I can craft {1}+{2} into {3}".format(aname,c1,c2,c3))
             results = c3.split("+")
-            if can_gain_card(c1,visited) and can_gain_card(c2,visited) and can_gain_tech(need,visited):
+            if c1 <= c2 and can_gain_card(c1,visited) and can_gain_card(c2,visited) and can_gain_tech(need,visited):
                 possible_tech.add(aname)
                 reachable_cards.update(results)
                 known_cards.update(results + [c1, c2])
-                useful_cards.update([c1,c2])
                 return True
         logging.warning("cannot gain {0}".format(aname))
         return False
@@ -188,11 +187,10 @@ def check_cards():
             if not cname in results:
                 continue
             logging.debug("I can get {0} if I can craft {1}+{2} into {3}".format(cname,c1,c2,c3))
-            if can_gain_card(c1) and can_gain_card(c2) and can_gain_tech(need,visited):
+            if c1 <= c2 and can_gain_card(c1) and can_gain_card(c2) and can_gain_tech(need,visited):
                 possible_tech.add(gain)
                 reachable_cards.update(results)
                 known_cards.update([c1,c2])
-                useful_cards.update([c1,c2])
                 return True
         for c in resource_cards:
             if cname != c.name:
@@ -218,6 +216,12 @@ def check_cards():
     # examine cards known but obviously not needed for countering nemeses
     for c in known_cards - reachable_cards:
         can_gain_card(c)
+
+    for (c1, c2) in RECIPES:
+        if c1 > c2:
+            logging.warning("malformed recipe {0} > {1}".format(c1, c2))
+        else:
+            useful_cards.update([c1,c2])
 
     cardlist = []
     for c in sorted(known_cards):
