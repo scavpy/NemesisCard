@@ -14,7 +14,7 @@
    height="300"
    id="svg5382"
    version="1.1"
-   inkscape:version="0.48.3.1 r9886"
+   inkscape:version="0.48.2 r9819"
    sodipodi:docname="compost.svg">
   <defs
      id="defs5384">
@@ -39,7 +39,7 @@
      inkscape:pageopacity="0"
      inkscape:pageshadow="2"
      inkscape:zoom="2.2466667"
-     inkscape:cx="93.495074"
+     inkscape:cx="94.833806"
      inkscape:cy="132.42757"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
@@ -110,15 +110,15 @@
     <text
        xml:space="preserve"
        style="font-size:33.21516418px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
-       x="68.272995"
-       y="1045.2322"
+       x="23.503096"
+       y="1040.9707"
        id="text5494"
        sodipodi:linespacing="125%"
        transform="scale(1.0637976,0.94002845)"><tspan
          sodipodi:role="line"
          id="tspan5496"
-         x="68.272995"
-         y="1045.2322">V</tspan></text>
+         x="23.503096"
+         y="1040.9707">Compost</tspan></text>
     <path
        style="fill:#786721;stroke:none"
        d="m 41.14599,904.87369 c -7.068724,4.5284 -15.40497,9.05679 -3.820834,13.58519 6.925728,9.77552 21.368093,9.52885 34.812036,10.61342 15.943501,4.73354 31.704738,10.07465 50.944448,3.82083 7.49856,-2.35251 20.20243,-0.70092 14.00971,-13.58518 19.64884,0.32671 27.83926,-4.24656 36.08564,-8.0662 -0.88838,-8.6637 1.40852,-16.41732 -6.79259,-27.17037 -8.13642,-2.37169 -17.28631,-2.20967 -23.34953,-9.76435 l -9.76435,-18.2551 c -7.54607,-7.12528 -14.42938,-15.57611 -26.32129,-14.00972 -6.07016,-5.22844 -13.051048,-8.02828 -22.500465,-4.24537 -16.596593,14.94938 -21.55599,24.08016 -27.170369,33.53843 l -9.764351,11.4625 c -4.546902,8.16671 -8.503489,16.13665 -6.368055,22.07592 z"

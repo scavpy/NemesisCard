@@ -14,7 +14,7 @@
    id="svg5382"
    version="1.1"
    inkscape:version="0.48.2 r9819"
-   sodipodi:docname="v.svg">
+   sodipodi:docname="scroll.svg">
   <defs
      id="defs5384" />
   <sodipodi:namedview
@@ -45,7 +45,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -96,14 +96,14 @@
     <text
        xml:space="preserve"
        style="font-size:33.21516418px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
-       x="68.272995"
-       y="1045.2322"
+       x="61.57843"
+       y="1071.7482"
        id="text5494"
        sodipodi:linespacing="125%"
        transform="scale(1.0637976,0.94002845)"><tspan
          sodipodi:role="line"
          id="tspan5496"
-         x="68.272995"
-         y="1045.2322">V</tspan></text>
+         x="61.57843"
+         y="1071.7482">Scroll</tspan></text>
   </g>
 </svg>
