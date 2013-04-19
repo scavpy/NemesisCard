@@ -14,7 +14,7 @@
    height="300"
    id="svg5382"
    version="1.1"
-   inkscape:version="0.48.2 r9819"
+   inkscape:version="0.48.3.1 r9886"
    sodipodi:docname="microscope.svg">
   <defs
      id="defs5384" />
@@ -27,7 +27,7 @@
      inkscape:pageshadow="2"
      inkscape:zoom="2.3555072"
      inkscape:cx="101.35173"
-     inkscape:cy="142.29636"
+     inkscape:cy="173.11093"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -65,15 +65,15 @@
     <text
        xml:space="preserve"
        style="font-size:28.70843315px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
-       x="12.062908"
-       y="1028.2262"
+       x="10.449542"
+       y="1055.4838"
        id="text5494"
        sodipodi:linespacing="125%"
        transform="scale(1.0525497,0.9500739)"><tspan
          sodipodi:role="line"
          id="tspan5496"
-         x="12.062908"
-         y="1028.2262">Microscope</tspan></text>
+         x="10.449542"
+         y="1055.4838">Microscope</tspan></text>
     <g
        id="g5280"
        transform="matrix(0.3658131,0,0,0.36284405,-18.689034,452.89915)"
@@ -114,5 +114,64 @@
        transform="matrix(-1,0,0,-1,198.25878,1803.0886)"
        width="200"
        height="300" />
+    <g
+       id="g3331"
+       transform="translate(-16.132407,10.613425)">
+      <path
+         transform="translate(0,752.36218)"
+         inkscape:connector-curvature="0"
+         id="path3315"
+         d="m 52.64259,132.30788 0.424537,12.31157 86.181013,1.69815 -0.42454,-12.73611 z"
+         style="fill:#4d4d4d;stroke:none" />
+      <path
+         transform="translate(0,752.36218)"
+         inkscape:connector-curvature="0"
+         id="path3327"
+         d="m 139.24814,33.390753 -5.94352,9.764352 9.76435,4.24537 5.94352,-10.188888 z"
+         style="fill:#ffe680;stroke:none" />
+      <path
+         sodipodi:nodetypes="ccccc"
+         transform="translate(0,752.36218)"
+         inkscape:connector-curvature="0"
+         id="path3317"
+         d="M 129.48379,38.909735 93.398144,105.98658 115.89861,118.29816 151.98425,48.249549 z"
+         style="fill:#ffeeaa;stroke:none" />
+      <path
+         sodipodi:nodetypes="cccccccccccc"
+         transform="translate(0,752.36218)"
+         inkscape:connector-curvature="0"
+         id="path3321"
+         d="m 124.81388,106.41112 25.89676,24.62315 -1.27361,32.26481 -50.944442,28.01944 -2.547222,10.61343 89.577314,-0.42454 -2.54723,-11.4625 -45.42546,-0.42453 25.04769,-20.37778 1.69815,-37.7838 -34.81204,-33.113883 z"
+         style="fill:#999999;stroke:none" />
+      <path
+         transform="translate(0,752.36218)"
+         d="m 150.28611,102.80256 c 0,8.55798 -7.12769,15.4956 -15.92014,15.4956 -8.79245,0 -15.92014,-6.93762 -15.92014,-15.4956 0,-8.557985 7.12769,-15.495602 15.92014,-15.495602 8.79245,0 15.92014,6.937617 15.92014,15.495602 z"
+         sodipodi:ry="15.495601"
+         sodipodi:rx="15.920138"
+         sodipodi:cy="102.80256"
+         sodipodi:cx="134.36597"
+         id="path3319"
+         style="fill:#ffe680;fill-opacity:1;stroke:none"
+         sodipodi:type="arc" />
+      <path
+         transform="translate(0,752.36218)"
+         inkscape:connector-curvature="0"
+         id="path3323"
+         d="m 119.71944,145.89306 37.78379,46.27454 -41.18009,-0.84908 -7.21713,-46.27453 z"
+         style="fill:#808080;stroke:none" />
+      <path
+         transform="translate(0,752.36218)"
+         inkscape:connector-curvature="0"
+         id="path3325"
+         d="m 98.917125,108.95834 -6.368055,10.61343 11.88704,6.79259 6.36805,-11.03796 z"
+         style="fill:#ffe680;stroke:none" />
+      <path
+         sodipodi:nodetypes="ccccc"
+         transform="translate(0,752.36218)"
+         inkscape:connector-curvature="0"
+         id="path3329"
+         d="m 139.67268,26.173624 -4.24537,6.368055 15.28333,5.943519 4.24537,-5.518982 z"
+         style="fill:#666666;stroke:none" />
+    </g>
   </g>
 </svg>
