@@ -143,6 +143,7 @@ def check_cards():
     reachable_cards = set()
     possible_tech = set([None])
     nemeses = set(c.name for c in resource_cards if c.need == "Nemesis")
+    useful_cards = set()
 
     # nemesis cards and ordinary resources are definitely available
     for c in resource_cards:
@@ -168,6 +169,7 @@ def check_cards():
                 possible_tech.add(aname)
                 reachable_cards.update(results)
                 known_cards.update(results + [c1, c2])
+                useful_cards.update([c1,c2])
                 return True
         logging.warning("cannot gain {0}".format(aname))
         return False
@@ -190,6 +192,7 @@ def check_cards():
                 possible_tech.add(gain)
                 reachable_cards.update(results)
                 known_cards.update([c1,c2])
+                useful_cards.update([c1,c2])
                 return True
         for c in resource_cards:
             if cname != c.name:
@@ -223,6 +226,8 @@ def check_cards():
             problems.add("unavailable")
         if c in nemeses:
             problems.add("nocounter")
+        if c not in useful_cards and c not in NEMESES:
+            problems.add("useless")
         cardlist.append((c, " ".join(problems)))
     return cardlist
 

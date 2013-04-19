@@ -197,3 +197,4 @@ button {
 .check { width: 100px; height: 150px; margin: 10px; }
 .check.unavailable { border-bottom: 2px solid red; }
 .check.nocounter { border-top: 2px solid red; }
+.check.useless {border-left: 2px solid blue; }
