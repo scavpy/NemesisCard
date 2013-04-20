@@ -66,7 +66,7 @@ function refresh_state() {
 }
 
 function draw_card_from_deck(evt) {
-    if (gamestate.lost) return;
+    if (gamestate.lost || gamestate.won) return;
     $.post("/draw/" + evt.target.id, null, got_state, "json");
 }
 

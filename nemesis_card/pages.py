@@ -68,24 +68,29 @@ def get_state():
 @post("/discard/<cardpos>")
 def discard_card(cardpos=None):
     state = session.get()
-    state.discard(cardpos)
+    if not (state.won or state.lost):
+        state.discard(cardpos)
     return json.dumps(state.as_dict())
 
 @post("/draw/<deckname>")
 def draw_card(deckname=None):
     state = session.get()
-    state.draw_card(deckname)
+    if not (state.won or state.lost):
+        state.draw_card(deckname)
     return json.dumps(state.as_dict())
 
 @post("/move/<frompos>/<topos>")
 def move_card(frompos=None,topos=None):
     state = session.get()
-    state.move_card(frompos, topos)
+    if not (state.won or state.lost):
+        state.move_card(frompos, topos)
     return json.dumps(state.as_dict())
 
 @get("/craft")
 def check_recipe():
     game = session.get()
+    if (game.won or game.lost):
+        return 'null'
     recipe = game.check_recipe()
     result = recipe.show if recipe else None
     return json.dumps(result)
@@ -93,7 +98,8 @@ def check_recipe():
 @post("/craft")
 def craft_recipe():
     game = session.get()
-    game.craft_recipe()
+    if not (game.won or game.lost):
+        game.craft_recipe()
     return json.dumps(game.as_dict())
 
 def setup(cheatmode=False):

@@ -67,6 +67,7 @@ class CardGameSession:
         self.score = 0
         self.draws = 0
         self.lost = False
+        self.won = False
         self.message = ""
         self.message_card = None
         self.craft1 = self.craft2 = None
@@ -197,6 +198,14 @@ class CardGameSession:
                 self.message_card = ""
                 for deck in self.decks.values():
                     deck.allow(recipe.gain)
+                remaining = set(n[0] for n in recipes.NEMESES.values()) - set(self.achieved)
+                if not remaining:
+                    self.hand.append(recipe.result)
+                    self.hand.append("awesome")
+                    self.message += "<br>You now have awesome knowledge and can overcome all threats. You WIN!"
+                    self.message_card = "awesome"
+                    self.won = True
+                    return
             self.check_nemesis(recipe.result,1000)
             if recipe.keep:
                 self.hand.append(recipe.keep)
