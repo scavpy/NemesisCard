@@ -26,9 +26,10 @@ import os
 import json
 
 from nemesis_card import bottle
-from nemesis_card.bottle import get, post, template, abort,redirect
-
+from nemesis_card.bottle import get, post, template, abort, redirect, request
 from nemesis_card import session, recipes
+
+CHEAT_MODE = False
 
 @get("/")
 def home_page():
@@ -37,6 +38,11 @@ def home_page():
 @get("/play")
 def play_game():
     sessionID = session.start()
+    if CHEAT_MODE:
+        cheatcards = request.query.get("cheat","")
+        if cheatcards:
+            game = session.get()
+            game.cheat(cheatcards.split(","))
     return template("play", session=sessionID)
 
 @get("/quit")
@@ -80,7 +86,7 @@ def move_card(frompos=None,topos=None):
 @get("/craft")
 def check_recipe():
     game = session.get()
-    recipe = game.check_recipe()
+    recipe = game.check_recipe(fake=True)
     result = recipe[0] if recipe else None
     return json.dumps(result)
 
@@ -90,10 +96,12 @@ def craft_recipe():
     game.craft_recipe()
     return json.dumps(game.as_dict())
 
-def setup():
+def setup(cheatmode=False):
     """ set up template and static file directories """
     data = os.path.abspath(os.path.split(__file__)[0] + "/../data")
     @bottle.route("/static/<filepath:path>")
     def static(filepath):
         return bottle.static_file(filepath, data + "/static")
     bottle.TEMPLATE_PATH = [data + "/views"]
+    global CHEAT_MODE
+    CHEAT_MODE = cheatmode

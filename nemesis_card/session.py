@@ -100,9 +100,9 @@ class CardGameSession:
         else:
             self.message = ""
             self.message_card = None
-        self.check_nemesis(card.name)
+        self.check_nemesis(card.name, card.rarity)
         
-    def check_nemesis(self, cardname):
+    def check_nemesis(self, cardname, rarity):
         """ see if a newly drawn or crafted card is a nemesis,
         and if so, whether the player has any defence against it. """
         try:
@@ -115,7 +115,7 @@ class CardGameSession:
             else:
                 self.message = ("Your civilization was threatened by {0}.<br>"
                                 "Fortunately you were saved by {1}".format(description, defence))
-                self.score += card.rarity
+                self.score += rarity
         except KeyError:
             # Not a Nemesis card, just add it to the hand
             self.hand.append(cardname)
@@ -170,7 +170,7 @@ class CardGameSession:
                 self.hand.append(self.craft2)
             self.craft2 = card
         
-    def check_recipe(self):
+    def check_recipe(self, fake=False):
         """ check if a recipe is possible """
         key = tuple(sorted([self.craft1, self.craft2]))
         result = None
@@ -181,8 +181,10 @@ class CardGameSession:
                 result = recipe
             else:
                 logging.debug("need {0} to make {1}".format(need_tech, cardname))
-            if cardname == "abomination":
-                # you always think you are getting something awesome, then...
+                if fake:
+                    result = ("q", need_tech, None, 0)
+            if fake and cardname == "abomination":
+                # you think you are getting something awesome, then...
                 result = ("awesome",None,None,0)
         else:
             logging.debug("rejected recipe {0}+{1}".format(key[0],key[1]))
@@ -192,9 +194,9 @@ class CardGameSession:
         """ craft a recipe if possible """
         recipe = self.check_recipe()
         if recipe:
-            cardname, need_tech, get_tech, points = recipe
             self.craft1 = None
             self.craft2 = None
+            result, need_tech, get_tech, points = recipe
             if get_tech is not None and get_tech not in self.achieved:
                 self.score += points
                 self.achieved.append(get_tech)
@@ -202,7 +204,12 @@ class CardGameSession:
                 self.message_card = ""
                 for deck in self.decks.values():
                     deck.allow(get_tech)
-            self.check_nemesis(cardname)
+            for cardname in result.split("+"):
+                self.check_nemesis(cardname,1000)
+
+    def cheat(self, cheatcards):
+        for cardname in cheatcards:
+            self.check_nemesis(cardname,0)
 
 SESSIONS = {}
 

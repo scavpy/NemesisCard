@@ -152,7 +152,8 @@ function setup() {
     $('.crafting').bind("drop", move_drop);
     $('#discard').bind("drop", discard_drop);
     $('#hand').bind("drop", move_drop);
-    $('#result').click(accept_recipe);
+    $('#result').mousedown(accept_recipe);
+    $('#help_btn').click(function() {$('#howtoplay').toggle("invisible");});
 }
 
 $(setup);

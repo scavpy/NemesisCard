@@ -8,7 +8,8 @@
 <body>
  <div id="cardtable">
   <div id="achievements">
-   <h2>Achieved</h2>
+   <h2>Score <span id="score"></span></h2>
+   <h3>Achieved</h3>
    <ul id="achieved">
    </ul>
   </div>
@@ -25,10 +26,9 @@
    <div id="result" class="result deck"></div>
    <div id="discard" class="discard deck"></div>
   </div>
-  <h2>Score <span id="score"></span></h2>
   <ul id="hand">
   </ul>
- <div id="message">
+  <div id="message">
    <div class="leftcol">
      <div id="message_text"></div>
      <button class="dismiss" type="button">Ok</button>
@@ -36,7 +36,11 @@
    <div class="rightcol">
      <div id="message_card" class="deck"></div>
    </div>
+  </div>
+  <button id="help_btn" class="help">Help</button>
+  <div id="howtoplay" class="invisible">
+    %include help
+  </div>
  </div>
-</div>
  <span class="hidden">{{session}}</span>
 </body>

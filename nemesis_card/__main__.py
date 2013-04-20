@@ -24,8 +24,9 @@ def main():
     add("--port", default=8123, type=int, help="Local port number")
     add("--no-open", default=False, action="store_true", help="don't open browser tab")
     add("--debug", default=False, action="store_true", help="show debug log")
+    add("--cheat", default=False, action="store_true", help="allow cheats")
     args = ap.parse_args()
-    nemesis_card.pages.setup()
+    nemesis_card.pages.setup(args.cheat)
     if not args.no_open:
         opener =  threading.Thread(target=partial(open_browser_later, args.port))
         opener.daemon = True

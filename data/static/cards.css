@@ -21,6 +21,13 @@ h2 {
   margin-bottom: 0;
 }
 
+h3 {
+  font-size: 120%;
+  text-align: center;
+  margin-top: 0.2em;
+  margin-bottom: 0;
+}
+
 body {
   font-size: 110%;
   font-family: Radley, serif;
@@ -93,7 +100,7 @@ button {
 }
 
 #achievements {
- width: 200px;
+ width: 180px;
  float: right;
  margin-right: 10px;
 }
@@ -122,10 +129,13 @@ button {
 #hand {
   display:block;
   overflow: visible;
-  width: 700px;
+  width: 570px;
   position: relative;
   border-radius: 10px;
   border: 2px solid #ffd;
+  height: 190px;
+  padding-top: 5px;
+  padding-bottom: 5px;
 }
 
 #hand li {
@@ -149,7 +159,7 @@ button {
 }
 
 .card:first-of-type {
-  margin-left: 0px;
+  margin-left: -35px;
 }
 
 .card:hover {
@@ -192,6 +202,8 @@ button {
 #message_card {
   border-color: black;
 }
+
+.invisible { display: none; }
 
 .dismiss {
   font-size: 80%;
