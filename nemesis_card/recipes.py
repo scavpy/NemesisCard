@@ -15,6 +15,7 @@ VEGETABLES = [
 #    C("latex",2,None),
     C("deforestation",80,"Nemesis"),
     C("winter",20,"Nemesis"),
+    C("oil",10,"Containers"),
     ]
 
 ANIMALS = [
@@ -49,6 +50,7 @@ MINERALS = [
     C("sulphur",5,None),
     C("meteor",200,"Nemesis"),
     C("balrog",100,"Nemesis"),
+    C("fuelcrisis",100,"Fire"),
     ]
 
 STOCK = {"animals":ANIMALS,
@@ -109,6 +111,7 @@ RECIPES = {
     ("bronzetools","iron"):R("irontools","Iron Tools",20),
     ("iron","stick"):R("irontools","Iron Tools",20),
     ("bronzetools","dirt"):R("farm","Agriculture",20),
+    ("dirt","woodentools"):R("farm","Agriculture",20),
     ("dirt","irontools"):R("farm","Agriculture",20),
     ("bronzetools","compost"):R("farm","Agriculture",20),
     ("compost","irontools"):R("farm","Agriculture",20),
@@ -148,6 +151,13 @@ RECIPES = {
     ("blood","tablet"):R("sigil","Demonology",50,need="Fire"),
     ("blood","scroll"):R("sigil","Demonology",50,need="Fire"),
     ("monstroserum","sigil"):R("abomination",show="awesome"),
+    ("coal","oil"):R("paintk","Paint",5),
+    ("ironore","oil"):R("paintr","Paint",5),
+    ("bone","oil"):R("paintw","Paint",5),
+    ("oil","sulphur"):R("painty","Paint",5),
+    ("dirt","oil"):R("paintbr","Paint",5),
+    ("copper","oil"):R("paintg","Paint",5),
+    ("paintr","painty"):R("painto","Paint",5),
 }
 
 NEMESES = {
@@ -158,6 +168,7 @@ NEMESES = {
     "plague":("Antibiotics", "a horrific plague."),
     "deforestation":("Land Conservation", "reckless deforestation."),
     "abomination":("Blastosaurus Rex","an unthinkable abomination."),
+    "fuelcrisis":("Renewable Energy","a serious fuel crisis. No energy means no agriculture, no transport: no food."),
 }
 
 

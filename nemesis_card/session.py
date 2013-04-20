@@ -177,7 +177,7 @@ class CardGameSession:
         recipe = recipes.RECIPES.get(key)
         if recipe:
             result = copy.deepcopy(recipe)
-            if recipe.need is not None and recipe.Need not in self.achieved:
+            if recipe.need is not None and recipe.need not in self.achieved:
                 logging.debug("need {0} to make {1}".format(recipe.need, recipe.result))
                 result.show = "q"
         else:
@@ -187,19 +187,19 @@ class CardGameSession:
     def craft_recipe(self):
         """ craft a recipe if possible """
         recipe = self.check_recipe()
-        if recipe:
+        if recipe and (recipe.need is None or recipe.need in self.achieved): 
             self.craft1 = None
             self.craft2 = None
-            result, need_tech, get_tech, points = recipe
-            if get_tech is not None and get_tech not in self.achieved:
-                self.score += points
-                self.achieved.append(get_tech)
-                self.message = "You have discovered {0}! (+{1} points)".format(get_tech, points)
+            if recipe.gain is not None and recipe.gain not in self.achieved:
+                self.score += recipe.points
+                self.achieved.append(recipe.gain)
+                self.message = "You have discovered {0.gain}! (+{0.points} points)".format(recipe)
                 self.message_card = ""
                 for deck in self.decks.values():
-                    deck.allow(get_tech)
-            for cardname in result.split("+"):
-                self.check_nemesis(cardname,1000)
+                    deck.allow(recipe.gain)
+            self.check_nemesis(recipe.result,1000)
+            if recipe.keep:
+                self.hand.append(recipe.keep)
 
     def cheat(self, cheatcards):
         for cardname in cheatcards:
