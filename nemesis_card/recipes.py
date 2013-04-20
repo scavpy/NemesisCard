@@ -11,7 +11,7 @@ VEGETABLES = [
     C("twigs",2,None),
     C("grass",1,None),
     C("log",2,None),
-    C("wheat",2,None),
+    C("wheat",2,"Agriculture"),
 #    C("latex",2,None),
     C("deforestation",80,"Nemesis"),
     C("winter",20,"Nemesis"),
@@ -55,82 +55,99 @@ STOCK = {"animals":ANIMALS,
          "vegetables":VEGETABLES,
          "minerals":MINERALS}
 
+class Recipe():
+    __slots__ = ('result','need','gain','keep','points','show')
+    def __init__(self,result, gain=None, points=0, need=None, keep=None, show=None):
+        self.result = result
+        self.need = need
+        self.gain = gain
+        self.points = points
+        self.keep = keep
+        self.show = show if show else result
+
+R = Recipe
+
 RECIPES = {
     # ingedients : (get card, need achievement, get achievement, score)
-    ("log","stick"):("wheel",None,"Wheel",10),
-    ("flint","stick"):("spear",None,"Hunting",5),
-    ("flint","twigs"):("ash",None,"Fire",10),
-    ("flint","grass"):("ash",None,"Fire",10),
-    ("grass","grass"):("string",None,None,0),
-    ("salt","skin"):("leather",None,"Leathercraft",0),
-    ("copper","string"):("copperwire","Bronze","Wire",30),
-    ("copperwire","iron"):("dynamo",None,"Electricity",50),
-    ("copper","zinc"):("brass",None,"Alloys",30),
-    ("copper","tin"):("bronze","Fire","Bronze",20),
-    ("brass","wheel"):("gear",None,"Clockwork",50),
-    ("bone","string"):("needle",None,"Sewing",10),
-    ("grass","water"):("paper",None,"Paper",15),
-    ("gear","paper"):("cardmill",None,"Data",50),
-    ("clay","clay"):("pottery","Fire","Containers",10),
-    ("cardmill","steamengine"):("analyticalengine",None,"Computing",100),
-    ("coal","ironore"):("iron","Fire","Iron",20),
-    ("coal","sulphur"):("gunpowder","Fire","Explosives I",30),
-    ("gunpowder","iron"):("cannon",None,"Cannon",50),
-    ("coal","water"):("steamengine","Iron","Steam",50),
-    ("analyticalengine","cannon"):("analyticalcannon",None,"Automated Artillery",200),
-    ("leather","string"):("bag",None,"Containers",10),
-    ("salt","sand"):("glass","Fire","Glassware",20),
-    ("dirt","grass"):("compost",None,None,0),
-    ("dirt","twigs"):("compost",None,None,0),
-    ("dirt","dirt"):("ironore","Chemistry",None,0),
-    ("brass","glass"):("lens",None,"Optics",20),
-    ("brass","lens"):("microscope",None,"Microbiology",50),
-    ("lens","lens"):("telescope",None,"Astronomy",30),
-    ("bread","compost"):("mould",None,None,0),
-    ("microscope","mould"):("antibiotics",None,"Antibiotics",200),
-    ("stick","stick"):("woodentools",None,"Tools",5),
-    ("bronze","stick"):("bronzetools",None,"Bronze Tools",20),
-    ("bronze","woodentools"):("bronzetools",None,"Bronze Tools",20),
-    ("bronzetools","iron"):("irontools",None,"Iron Tools",20),
-    ("iron","stick"):("irontools",None,"Iron Tools",20),
-    ("bronzetools","dirt"):("farm",None,"Agriculture",20),
-    ("dirt","irontools"):("farm",None,"Agriculture",20),
-    ("bronzetools","compost"):("farm",None,"Agriculture",20),
-    ("compost","irontools"):("farm",None,"Agriculture",20),
-    ("farm","log"):("treefarm",None,"Land Conservation", 100),
-    ("stone","wheat"):("bread","Fire","Baking",20),
-    ("bread","water"):("beer","Glassware","Brewing",20),
-    ("leather","needle"):("lederhosen",None,"Clothing",20),
-    ("beer","lederhosen"):("oktoberfest",None,"Oktoberfest",500),
-  #  ("latex","sulphur"):("rubber","Chemistry","Polymers",50),
-    ("ash","clay"):("aluminium","Electricity","Aluminium",50),
-    ("water","water"):("hydrogen+oxygen","Electricity","Electrolysis",30),
-    ("hydrogen","water"):("liquidh2","Electricity","Cryogenics",30),
-    ("hydrogen","hydrogen"):("liquidh2","Electricity","Cryogenics",30),
-    ("oxygen","water"):("liquido2","Electricity","Cryogenics",30),
-    ("oxygen","oxygen"):("liquido2","Electricity","Cryogenics",30),
-    ("liquidh2","liquido2"):("rocketfuel",None,"Rocket Fuel",20),
-    ("aluminium","rocketfuel"):("rocketstage",None,"Rocket Engines", 50),
-    ("rocketstage","rocketstage"):("rocket",None,"Spaceships",50),
-    ("computer","telescope"):("meteorwarning",None,"Meteor Warning System",100),
-    ("meteorwarning","rocket"):("meteordefence",None,"Meteor Defence System",200),
-    ("glass","sand"):("silicon","Electricity","Electronics",100),
-    ("analyticalengine","silicon"):("computer",None,"Electronic Computer",100),
-    ("sulphur","water"):("sulphuricacid","Glassware","Chemistry",20),
-    ("sulphuricacid","zinc"):("hydrogen",None,None,0),
-    ("coal","hydrogen"):("chemicals","Chemistry","Organic Chemistry",30),
-    ("coal","sulphuricacid"):("chemicals","Chemistry","Organic Chemistry",30),
-    ("blood","chemicals"):("DNA","Microbiology","Biotechnology",50),
-    ("chemicals","meat"):("DNA","Microbiology","Biotechnology",50),
-    ("DNA","chemicals"):("monstroserum","Brewing","Mad Science",100),
-    ("chicken","monstroserum"):("hugecock",None,"Monster Creation",100),
-    ("chemicals","sulphuricacid"):("explosives",None,"Explosives II",100),
-    ("explosives","hugecock"):("brex",None,"Blastosaurus Rex",500),
-    ("clay","stick"):("tablet",None,"Writing",20),
-    ("paper","stick"):("scroll",None,"Writing",20),
-    ("blood","tablet"):("sigil","Fire","Demonology",50),
-    ("blood","scroll"):("sigil","Fire","Demonology",50),
-    ("monstroserum","sigil"):("abomination",None,None,0),
+    ("log","stick"):R("wheel","Wheel",10),
+    ("flint","stick"):R("spear","Hunting",5),
+    ("flint","twigs"):R("ash","Fire",10),
+    ("flint","grass"):R("ash","Fire",10),
+    ("grass","grass"):R("string"),
+    ("salt","skin"):R("leather","Leathercraft",5),
+    ("copper","string"):R("copperwire","Wire",30, need="Bronze"),
+    ("copperwire","iron"):R("dynamo","Electricity",50),
+    ("sand","stone"):R("concrete","Concrete",30, need="Fire"),
+    ("concrete","iron"):R("rconcrete","Reinforced Concrete",30),
+    ("dynamo","rconcrete"):R("hydroelectric","Renewable Energy",100),
+    ("copper","zinc"):R("brass","Alloys",30),
+    ("copper","tin"):R("bronze","Bronze",20,need="Fire"),
+    ("brass","wheel"):R("gear","Clockwork",50),
+    ("bone","string"):R("needle","Sewing",10),
+    ("grass","water"):R("paper","Paper",15),
+    ("gear","paper"):R("cardmill","Data",50),
+    ("clay","clay"):R("pottery","Containers",10,need="Fire"),
+    ("cardmill","steamengine"):R("analyticalengine","Computing",100),
+    ("coal","ironore"):R("iron","Iron",20,need="Fire"),
+    ("coal","sulphur"):R("gunpowder","Explosives",30,need="Fire"),
+    ("gunpowder","iron"):R("cannon","Cannon",50),
+    ("coal","water"):R("steamengine","Steam",50,need="Iron Tools"),
+    ("analyticalengine","cannon"):R("analyticalcannon","Automated Artillery",200),
+    ("leather","string"):R("bag","Containers",10),
+    ("salt","sand"):R("glass","Glassware",20,need="Fire"),
+    ("dirt","grass"):R("compost"),
+    ("dirt","twigs"):R("compost"),
+    ("dirt","dirt"):R("ironore",need="Chemistry"),
+    ("brass","glass"):R("lens","Optics",20),
+    ("brass","lens"):R("microscope","Microbiology",50),
+    ("lens","lens"):R("telescope","Astronomy",30),
+    ("bread","compost"):R("mould"),
+    ("microscope","mould"):R("antibiotics","Antibiotics",200),
+    ("stick","stick"):R("woodentools","Tools",5),
+    ("bronze","stick"):R("bronzetools","Bronze Tools",20),
+    ("bronze","woodentools"):R("bronzetools","Bronze Tools",20),
+    ("bronzetools","iron"):R("irontools","Iron Tools",20),
+    ("iron","stick"):R("irontools","Iron Tools",20),
+    ("bronzetools","dirt"):R("farm","Agriculture",20),
+    ("dirt","irontools"):R("farm","Agriculture",20),
+    ("bronzetools","compost"):R("farm","Agriculture",20),
+    ("compost","irontools"):R("farm","Agriculture",20),
+    ("farm","log"):R("treefarm","Land Conservation", 100),
+    ("stone","wheat"):R("bread","Baking",20,need="Fire"),
+    ("bread","water"):R("beer","Brewing",20,need="Fire"),
+    ("leather","needle"):R("lederhosen","Clothing",20),
+    ("meat","string"):R("sausage","Sausage",10),
+    ("beer","lederhosen"):R("oktoberfest","Oktoberfest",500),
+    ("beer","sausage"):R("oktoberfest","Oktoberfest",500),
+  #  ("latex","sulphur"):R("rubber","Polymers",50,need="Chemistry"),
+    ("ash","clay"):R("aluminium","Aluminium",50,need="Electricity"),
+    ("water","water"):R("oxygen","Electrolysis",30,need="Electricity",keep="hydrogen",show="hydrogen+oxygen"),
+    ("hydrogen","water"):R("liquidh2","Cryogenics",30,need="Electricity"),
+    ("hydrogen","hydrogen"):R("liquidh2","Cryogenics",30,need="Electricity"),
+    ("oxygen","water"):R("liquido2","Cryogenics",30,need="Electricity"),
+    ("oxygen","oxygen"):R("liquido2","Cryogenics",30,need="Electricity"),
+    ("liquidh2","liquido2"):R("rocketfuel","Rocket Fuel",20),
+    ("aluminium","rocketfuel"):R("rocketstage","Rocket Engines", 50),
+    ("rocketstage","rocketstage"):R("rocket","Spaceships",100),
+    ("computer","telescope"):R("meteorwarning","Meteor Warning System",100),
+    ("meteorwarning","rocket"):R("meteordefence","Meteor Defence System",200),
+    ("glass","sand"):R("silicon","Electronics",100,need="Electricity"),
+    ("analyticalengine","silicon"):R("computer","Electronic Computer",100),
+    ("sulphur","water"):R("sulphuricacid","Chemistry",20,need="Glassware"),
+    ("sulphuricacid","zinc"):R("hydrogen"),
+    ("coal","hydrogen"):R("chemicals","Organic Chemistry",30,need="Chemistry"),
+    ("coal","sulphuricacid"):R("chemicals","Organic Chemistry",30,need="Chemistry"),
+    ("blood","chemicals"):R("DNA","Biotechnology",50,need="Microbiology"),
+    ("chemicals","meat"):R("DNA","Biotechnology",50,need="Microbiology"),
+    ("DNA","chemicals"):R("monstroserum","Mad Science",100,need="Brewing"),
+    ("chicken","monstroserum"):R("hugecock","Monster Creation",100),
+    ("chemicals","sulphuricacid"):R("explosives","High Explosives",100),
+    ("explosives","hugecock"):R("brex","Blastosaurus Rex",500),
+    ("clay","stick"):R("tablet","Writing",20),
+    ("paper","stick"):R("scroll","Writing",20),
+    ("blood","tablet"):R("sigil","Demonology",50,need="Fire"),
+    ("blood","scroll"):R("sigil","Demonology",50,need="Fire"),
+    ("monstroserum","sigil"):R("abomination",show="awesome"),
 }
 
 NEMESES = {
@@ -164,23 +181,27 @@ def check_cards():
     # mutually-recursive card and tech searching functions, memoed in reachable_cards and possible_tech
     def can_gain_tech(aname, visited):
         """ can gain tech if it's in a recipe and cards are available """
-        logging.debug("can I get {0}?".format(aname))
         if aname in possible_tech:
-            logging.debug("yes")
+            if aname:
+                logging.debug("I can get {0}".format(aname))
             return True
         if aname in visited:
             logging.warning("loop at {0}".format(aname))
             return False
         visited.add(aname)
-        for (c1, c2), (c3, need, gain, pts) in RECIPES.items():
-            if gain != aname:
+        for (c1, c2), recipe in RECIPES.items():
+            if recipe.gain != aname:
                 continue
-            logging.debug("I can get {0} if I can craft {1}+{2} into {3}".format(aname,c1,c2,c3))
-            results = c3.split("+")
-            if c1 <= c2 and can_gain_card(c1,visited) and can_gain_card(c2,visited) and can_gain_tech(need,visited):
+            if c1 > c2:
+                continue
+            logging.debug("I can get {0} if I can craft {1}+{2}".format(aname,c1,c2))
+            if can_gain_card(c1,visited) and (c1==c2 or can_gain_card(c2,visited)) and can_gain_tech(recipe.need,visited):
                 possible_tech.add(aname)
-                reachable_cards.update(results)
-                known_cards.update(results + [c1, c2])
+                reachable_cards.add(recipe.result)
+                known_cards.update([c1, c2, recipe.result])
+                if recipe.keep:
+                    reachable_cards.add(recipe.keep)
+                    known_cards.add(recipe.keep)
                 return True
         logging.warning("cannot gain {0}".format(aname))
         return False
@@ -188,21 +209,25 @@ def check_cards():
     def can_gain_card(cname,visited=set()):
         """ can gain card if craftable or obtainable in card decks """
         if cname in reachable_cards:
+            logging.debug("I can get {0}".format(cname))
             return True
-        logging.debug("can I get {0}?".format(cname))
         if cname in visited:
             logging.warning("loop at {0}".format(cname))
             return False
         visited.add(cname)
-        for (c1, c2), (c3, need, gain, pts) in RECIPES.items():
-            results = c3.split("+")
-            if not cname in results:
+        for (c1, c2), recipe in RECIPES.items():
+            if cname not in (recipe.result, recipe.keep):
                 continue
-            logging.debug("I can get {0} if I can craft {1}+{2} into {3}".format(cname,c1,c2,c3))
-            if c1 <= c2 and can_gain_card(c1) and can_gain_card(c2) and can_gain_tech(need,visited):
-                possible_tech.add(gain)
-                reachable_cards.update(results)
+            if c1 > c2:
+                continue
+            logging.debug("I can get {0} if I can craft {1}+{2}".format(cname,c1,c2))
+            if can_gain_card(c1, visited) and (c1==c2 or can_gain_card(c2, visited)) and can_gain_tech(recipe.need,visited):
+                possible_tech.add(recipe.gain)
+                reachable_cards.add(recipe.result)
                 known_cards.update([c1,c2])
+                if recipe.keep:
+                    reachable_cards.add(recipe.keep)
+                    known_cards.add(recipe.keep)
                 return True
         for c in resource_cards:
             if cname != c.name:
@@ -215,7 +240,9 @@ def check_cards():
         logging.warning("cannot gain {0}".format(cname))
 
     for r in RECIPES.values():
-        known_cards |= set(r[0].split("+"))
+        known_cards.add(r.result)
+        if r.keep:
+            known_cards.add(r.keep)
     for ingredients in RECIPES:
         known_cards |= set(ingredients)
 
@@ -242,6 +269,8 @@ def check_cards():
             problems.add("unavailable")
         if c in nemeses:
             problems.add("nocounter")
+        elif c in NEMESES:
+            problems.add("nemesis")
         if c not in useful_cards and c not in NEMESES:
             problems.add("useless")
         cardlist.append((c, " ".join(problems)))

@@ -170,22 +170,16 @@ class CardGameSession:
                 self.hand.append(self.craft2)
             self.craft2 = card
         
-    def check_recipe(self, fake=False):
+    def check_recipe(self):
         """ check if a recipe is possible """
         key = tuple(sorted([self.craft1, self.craft2]))
         result = None
         recipe = recipes.RECIPES.get(key)
         if recipe:
-            cardname, need_tech, get_tech, points = recipe
-            if need_tech is None or need_tech in self.achieved:
-                result = recipe
-            else:
-                logging.debug("need {0} to make {1}".format(need_tech, cardname))
-                if fake:
-                    result = ("q", need_tech, None, 0)
-            if fake and cardname == "abomination":
-                # you think you are getting something awesome, then...
-                result = ("awesome",None,None,0)
+            result = copy.deepcopy(recipe)
+            if recipe.need is not None and recipe.Need not in self.achieved:
+                logging.debug("need {0} to make {1}".format(recipe.need, recipe.result))
+                result.show = "q"
         else:
             logging.debug("rejected recipe {0}+{1}".format(key[0],key[1]))
         return result

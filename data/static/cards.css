@@ -212,7 +212,9 @@ button {
   display: block;
 }
 
-.check { width: 100px; height: 150px; margin: 10px; }
-.check.unavailable { border-bottom: 2px solid red; }
-.check.nocounter { border-top: 2px solid red; }
-.check.useless {border-left: 2px solid blue; }
+.check { width: 100px; height: 150px; margin: 10px; border: 3px solid #80C060; }
+.check.unavailable { border-color: orange; }
+.check.nocounter { border-color: red; }
+.check.nocounter.unavailable { border-color: blue; }
+.check.useless {border-color: blue; }
+.check.nemesis { border-color: black; }

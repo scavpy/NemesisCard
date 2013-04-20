@@ -86,8 +86,8 @@ def move_card(frompos=None,topos=None):
 @get("/craft")
 def check_recipe():
     game = session.get()
-    recipe = game.check_recipe(fake=True)
-    result = recipe[0] if recipe else None
+    recipe = game.check_recipe()
+    result = recipe.show if recipe else None
     return json.dumps(result)
 
 @post("/craft")

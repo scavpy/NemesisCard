@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="200"
+   height="300"
+   id="svg5382"
+   version="1.1"
+   inkscape:version="0.48.3.1 r9886"
+   sodipodi:docname="hydroelectric.svg">
+  <defs
+     id="defs5384" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="2.3218276"
+     inkscape:cx="101.37521"
+     inkscape:cy="147.4583"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     inkscape:showpageshadow="false"
+     inkscape:window-width="733"
+     inkscape:window-height="945"
+     inkscape:window-x="267"
+     inkscape:window-y="0"
+     inkscape:window-maximized="0"
+     borderlayer="true" />
+  <metadata
+     id="metadata5387">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(0,-752.36218)">
+    <rect
+       style="fill:#ffffff;stroke:none"
+       id="rect5598"
+       width="204.38741"
+       height="316.13028"
+       x="-2.6911893"
+       y="746.83875" />
+    <text
+       xml:space="preserve"
+       style="font-size:25.55487061px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="9.7207079"
+       y="1060.655"
+       id="text5494"
+       sodipodi:linespacing="125%"
+       transform="scale(1.0637976,0.94002845)"><tspan
+         sodipodi:role="line"
+         id="tspan5496"
+         x="9.7207079"
+         y="1060.655">Hydroelectric</tspan><tspan
+         sodipodi:role="line"
+         x="9.7207079"
+         y="1092.5986"
+         id="tspan3192">dam</tspan></text>
+    <path
+       sodipodi:type="star"
+       style="fill:#afdde9;stroke:#afdde9"
+       id="path3826"
+       sodipodi:sides="5"
+       sodipodi:cx="11.62877"
+       sodipodi:cy="11.003522"
+       sodipodi:r1="11.912441"
+       sodipodi:r2="5.9562201"
+       sodipodi:arg1="0.70862627"
+       sodipodi:arg2="1.3369448"
+       inkscape:flatsided="false"
+       inkscape:rounded="0"
+       inkscape:randomized="0"
+       d="M 20.67337,18.756036 13.008981,16.79762 7.0506259,22.001106 6.5447633,14.106655 -0.24527837,10.047889 7.1064704,7.1272652 8.8683484,-0.58467595 13.917842,5.5047303 21.796784,4.797255 l -4.23099,6.684084 z"
+       transform="translate(10.336685,763.12956)"
+       inkscape:transform-center-x="0.85301709"
+       inkscape:transform-center-y="-0.29530691" />
+    <use
+       x="0"
+       y="0"
+       xlink:href="#path3826"
+       inkscape:transform-center-x="6.4283571"
+       inkscape:transform-center-y="-14.89743"
+       id="use3828"
+       transform="matrix(0.88745042,0.46090319,-0.46090319,0.88745042,516.04566,334.56013)"
+       width="200"
+       height="300" />
+    <path
+       inkscape:connector-curvature="0"
+       id="path3202"
+       d="m 46.084387,837.01459 -14.21294,-37.47049 -13.78224,9.90599 -12.9208603,33.16353 -9.0446004,8.61391 0,71.06471 37.9011807,-1.29209 z"
+       style="fill:#c8beb7;stroke:none" />
+    <path
+       style="fill:#f2f2f2;stroke:none"
+       d="m 43.500215,72.16224 c 51.209897,4.692435 94.191145,5.054002 123.609525,-1.722781 L 148.15915,188.44994 11.62877,169.93005 z"
+       id="path3194"
+       inkscape:connector-curvature="0"
+       transform="translate(0,752.36218)"
+       sodipodi:nodetypes="ccccc" />
+    <path
+       style="fill:#c8beb7;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 155.48097,99.296037 14.21294,-37.470482 13.78224,9.90599 12.92086,33.163525 9.0446,8.61391 0,71.06471 -37.90118,-1.29209 z"
+       id="path3198"
+       inkscape:connector-curvature="0"
+       transform="translate(0,752.36218)" />
+    <path
+       style="fill:#999999;stroke:none"
+       d="m 114.13422,194.04898 c 2.52304,-31.03564 14.67451,-52.68452 32.30215,-90.0153 27.53257,-9.229157 32.66107,-14.141178 43.93091,31.44075 l 7.32181,59.86663 z"
+       id="path3196"
+       inkscape:connector-curvature="0"
+       transform="translate(0,752.36218)"
+       sodipodi:nodetypes="ccccc" />
+    <path
+       style="fill:#d7f4ee;stroke:none"
+       d="m 72.225517,169.19994 c -12.059465,4.5223 -9.6994,2.66419 -19.97925,6.49116 -8.607113,3.20425 -32.806853,10.9454 -30.50824,15.06701 -1.824747,4.36495 44.007073,22.85166 19.178017,23.96424 -18.95114,0.84919 -38.7625678,12.49016 -38.7625678,12.49016 l 40.4853488,0.4307 c 0,0 31.871444,-2.58417 37.901177,-14.21294 6.93397,-13.19947 -23.356715,-8.76298 -19.811979,-24.98033 13.782246,-12.05946 14.438626,-10.22159 14.438626,-10.22159 z"
+       id="path3200"
+       inkscape:connector-curvature="0"
+       transform="translate(0,752.36218)"
+       sodipodi:nodetypes="cscscccccc" />
+    <path
+       style="fill:#666666;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;opacity:0.5"
+       d="m 52.114119,175.52909 6.460428,-7.32182 13.782246,1.29209 3.014867,9.04459 z"
+       id="path3204"
+       inkscape:connector-curvature="0"
+       transform="translate(0,752.36218)"
+       sodipodi:nodetypes="ccccc" />
+  </g>
+</svg>
