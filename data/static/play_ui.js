@@ -37,6 +37,7 @@ function discard_drop(e) {
     var dt = e.originalEvent.dataTransfer;
     var frompos = dt.getData("text/plain");
     $.post("/discard/" + frompos, null, got_state, "json");
+    e.preventDefault();
 }
 
 function move_drop(e) {
@@ -44,6 +45,7 @@ function move_drop(e) {
     var dt = e.originalEvent.dataTransfer;
     var frompos = dt.getData("text/plain");
     $.post("/move/" + frompos + "/" + topos, null, got_state, "json");
+    e.preventDefault();
 }
 
 function accept_recipe(e) {
